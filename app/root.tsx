@@ -6,12 +6,14 @@ import {
   Scripts,
   ScrollRestoration,
 } from 'remix';
+import { Header } from './components/header';
 
-import type { MetaFunction, LinksFunction } from 'remix';
+import type { MetaFunction, LinksFunction, ActionFunction } from 'remix';
 
-import unoStyles from './styles/uno.css';
+import resetStyles from './styles/reset.css';
 import darkStyles from './styles/dark.css';
-import { Inline } from './components/inline';
+import unoStyles from './styles/uno.css';
+import { Footer } from './components/footer';
 
 export const meta: MetaFunction = () => {
   return { title: 'Cédric Gourville' };
@@ -19,9 +21,14 @@ export const meta: MetaFunction = () => {
 
 export const links: LinksFunction = () => {
   return [
-    { rel: 'stylesheet', href: unoStyles },
+    { rel: 'stylesheet', href: resetStyles },
     { rel: 'stylesheet', href: darkStyles },
+    { rel: 'stylesheet', href: unoStyles },
   ];
+};
+
+export const action: ActionFunction = async ({ request }) => {
+  return null;
 };
 
 export default function App() {
@@ -34,15 +41,9 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <header className="h20">
-          <Inline>
-            <h1>Cédric Gourville</h1>
-            <p>Welcome</p>
-          </Inline>
-        </header>
+        <Header theme="light" />
         <Outlet />
-        <footer className="pos-fixed bottom-0 h20">Footer</footer>
-
+        <Footer />
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
