@@ -1,9 +1,7 @@
-/* layer: shortcuts */
-.btn{--un-shadow-inset:var(--un-empty,/*!*/ /*!*/);--un-shadow:0 0 #0000;}
-.btn{border-radius:0.5rem;padding-top:0.5rem;padding-bottom:0.5rem;padding-left:1rem;padding-right:1rem;font-weight:600;--un-text-opacity:1;color:rgba(248,113,113,var(--un-text-opacity));--un-shadow:var(--un-shadow-inset) 0 4px 6px -1px var(--un-shadow-color, rgba(0,0,0,0.1)),var(--un-shadow-inset) 0 2px 4px -2px var(--un-shadow-color, rgba(0,0,0,0.1));box-shadow:var(--un-ring-offset-shadow, 0 0 #0000), var(--un-ring-shadow, 0 0 #0000), var(--un-shadow);}
 /* layer: default */
 .mx-100{margin-left:25rem;margin-right:25rem;}
 .mt-8{margin-top:2rem;}
 .px-8{padding-left:2rem;padding-right:2rem;}
 .pt-50{padding-top:12.5rem;}
 .text-blue-600{--un-text-opacity:1;color:rgba(37,99,235,var(--un-text-opacity));}
+.text-purple-500{--un-text-opacity:1;color:rgba(168,85,247,var(--un-text-opacity));}

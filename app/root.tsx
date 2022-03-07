@@ -13,7 +13,7 @@ import unoStyles from './styles/uno.css';
 import darkStyles from './styles/dark.css';
 
 export const meta: MetaFunction = () => {
-  return { title: 'New Remix App' };
+  return { title: 'Cédric Gourville' };
 };
 
 export const links: LinksFunction = () => {
