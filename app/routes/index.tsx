@@ -13,7 +13,7 @@ export default function Index() {
 
   return (
     <div className="mt-8 px-8">
-      <h1>Welcome to Cedric</h1>
+      <h1>Cedric</h1>
       <ul className="text-purple-500">
         {datas.map((data) => (
           <li key={data.name}>{data.name}</li>
