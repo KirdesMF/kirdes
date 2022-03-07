@@ -14,5 +14,14 @@
 export default function Index() {
   // const datas = useLoaderData<Record<string, any>[]>();
 
-  return <div className="flex gap-10 min-h-[100vh]"></div>;
+  return (
+    <main className="grid gap-10">
+      <section id="home">
+        <div className="grid items-center min-h-[calc(100vh-5rem)]"></div>
+      </section>
+      <section id="about"></section>
+      <section id="works"></section>
+      <section id="contact"></section>
+    </main>
+  );
 }

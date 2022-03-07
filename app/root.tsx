@@ -10,10 +10,9 @@ import { Header } from './components/header';
 
 import type { MetaFunction, LinksFunction, ActionFunction } from 'remix';
 
-import resetStyles from './styles/reset.css';
-import darkStyles from './styles/dark.css';
-import unoStyles from './styles/uno.css';
-import { Footer } from './components/footer';
+import resetStyles from '~/styles/reset.css';
+import darkStyles from '~/styles/dark.css';
+import unoStyles from '~/styles/uno.css';
 
 export const meta: MetaFunction = () => {
   return { title: 'Cédric Gourville' };
@@ -43,7 +42,6 @@ export default function App() {
       <body>
         <Header theme="light" />
         <Outlet />
-        <Footer />
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
