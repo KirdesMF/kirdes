@@ -1,7 +1,7 @@
 /* layer: default */
-.mx-100{margin-left:25rem;margin-right:25rem;}
-.mt-8{margin-top:2rem;}
-.px-8{padding-left:2rem;padding-right:2rem;}
-.pt-50{padding-top:12.5rem;}
-.text-blue-600{--un-text-opacity:1;color:rgba(37,99,235,var(--un-text-opacity));}
-.text-purple-500{--un-text-opacity:1;color:rgba(168,85,247,var(--un-text-opacity));}
+.pos-fixed{position:fixed;}
+.bottom-0{bottom:0rem;}
+.h20{height:5rem;}
+.flex{display:flex;}
+.items-center{align-items:center;}
+.gap-5{grid-gap:1.25rem;gap:1.25rem;}

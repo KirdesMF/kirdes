@@ -12,9 +12,9 @@ export default function Index() {
   const datas = useLoaderData<Record<string, any>[]>();
 
   return (
-    <div className="mt-8 px-8">
+    <div>
       <h1>Cedric</h1>
-      <ul className="text-purple-500">
+      <ul>
         {datas.map((data) => (
           <li key={data.name}>{data.name}</li>
         ))}

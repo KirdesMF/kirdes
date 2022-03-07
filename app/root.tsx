@@ -11,6 +11,7 @@ import type { MetaFunction, LinksFunction } from 'remix';
 
 import unoStyles from './styles/uno.css';
 import darkStyles from './styles/dark.css';
+import { Inline } from './components/inline';
 
 export const meta: MetaFunction = () => {
   return { title: 'Cédric Gourville' };
@@ -32,8 +33,16 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body className="text-blue-600 mx-100 pt-50">
+      <body>
+        <header className="h20">
+          <Inline>
+            <h1>Cédric Gourville</h1>
+            <p>Welcome</p>
+          </Inline>
+        </header>
         <Outlet />
+        <footer className="pos-fixed bottom-0 h20">Footer</footer>
+
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
