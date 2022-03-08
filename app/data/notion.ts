@@ -1,6 +1,11 @@
-import { Client } from '@notionhq/client';
+import { notion } from '~/utils/notion.server';
 
-const notion = new Client({ auth: process.env.NOTION_TOKEN });
+export type NotionData = {
+  icon: string;
+  href: string;
+  name: string;
+  topics: string;
+};
 
 export async function getNotionDatas() {
   const datas = await notion.databases.query({
@@ -11,5 +16,6 @@ export async function getNotionDatas() {
     href: properties.href.url,
     topics: properties.topics.select.name,
     name: properties.name.title[0].plain_text,
+    icon: '',
   }));
 }

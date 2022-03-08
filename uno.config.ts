@@ -10,4 +10,7 @@ export default defineConfig({
       }),
     ],
   ],
+  shortcuts: {
+    wrapper: 'w-[min(65rem,100%)] mx-auto px-10',
+  },
 });
