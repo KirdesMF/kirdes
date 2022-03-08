@@ -8,7 +8,7 @@ import { Icon } from '@iconify/react';
 // - check https://www.youtube.com/watch?v=3XkU_DXcgl0 for caching
 // - https://dev.to/codefinity/remix-newsletter-7-35k7
 
-export const loader: LoaderFunction = async () => {
+export const loader: LoaderFunction = async ({ request }) => {
   const datas = await getNotionDatas();
 
   return json(datas, {
@@ -38,11 +38,11 @@ export default function Index() {
         </div>
       </section>
       <section id="about">
-        <div className="wrapper grid gap-5">
-          <ul>
+        <div className="wrapper grid gap-10">
+          <ul className="grid gap-5">
             {datas.map((data) => (
-              <li key={data.name} className="grid gap-5">
-                <Icon icon={data.icon} />
+              <li key={data.name}>
+                <Icon icon={data.icon} className="w-10 h-10 color-red-500" />
                 <a href={data.href}>{data.name}</a>
               </li>
             ))}
