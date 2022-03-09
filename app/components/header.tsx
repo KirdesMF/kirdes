@@ -1,4 +1,4 @@
-import { Form } from 'remix';
+import { Form, useLocation } from 'remix';
 import { Icon } from '@iconify/react';
 
 const styles = {
@@ -16,12 +16,18 @@ type Props = {
   theme: 'light' | 'dark';
 };
 export function Header({ theme = 'light' }: Props) {
+  const { pathname } = useLocation();
+  const currentTheme = theme === 'light' ? 'dark' : 'light';
+
   return (
     <header className={styles.header}>
       <Form method="post">
         <button className={styles.btn}>
           <span className="sr-only">Theme toggle</span>
           <Icon icon={icon[theme]} width="100%" height="100%" />
+
+          <input type="hidden" name="location" value={pathname} />
+          <input type="hidden" name="theme" value={currentTheme} />
         </button>
       </Form>
 

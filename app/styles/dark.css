@@ -1,3 +1,7 @@
 :root {
+  --background: #f9fbfc;
+}
+
+:root.dark {
   --background: #1d1f21;
 }

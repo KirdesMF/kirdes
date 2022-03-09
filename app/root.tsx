@@ -3,12 +3,20 @@ import {
   LiveReload,
   Meta,
   Outlet,
+  redirect,
   Scripts,
   ScrollRestoration,
+  useLoaderData,
 } from 'remix';
+import { getCookieTheme, setCookieTheme } from './utils/cookie.server';
 import { Header } from './components/header';
 
-import type { MetaFunction, LinksFunction, ActionFunction } from 'remix';
+import type {
+  MetaFunction,
+  LinksFunction,
+  ActionFunction,
+  LoaderFunction,
+} from 'remix';
 
 import resetStyles from '~/styles/reset.css';
 import darkStyles from '~/styles/dark.css';
@@ -26,21 +34,42 @@ export const links: LinksFunction = () => {
   ];
 };
 
+export const loader: LoaderFunction = async ({ request }) => {
+  const cookie = await getCookieTheme(request);
+  if (!cookie.theme) cookie.theme = 'light';
+
+  return { theme: cookie.theme };
+};
+
 export const action: ActionFunction = async ({ request }) => {
-  return null;
+  const form = await request.formData();
+  const cookie = await getCookieTheme(request);
+
+  const theme = form.get('theme') as 'light' | 'dark';
+  const location = form.get('location') as string;
+
+  cookie.theme = theme;
+
+  return redirect(location, {
+    headers: {
+      'Set-Cookie': await setCookieTheme.serialize(cookie),
+    },
+  });
 };
 
 export default function App() {
+  const data = useLoaderData<{ theme: 'light' | 'dark' }>();
+
   return (
-    <html lang="en">
+    <html lang="en" className={data.theme}>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <Meta />
         <Links />
       </head>
-      <body>
-        <Header theme="light" />
+      <body className="bg-[var(--background)]">
+        <Header theme={data.theme} />
         <Outlet />
         <ScrollRestoration />
         <Scripts />
