@@ -8,19 +8,24 @@ export type NotionData = {
 };
 
 export async function getNotionDatas(): Promise<NotionData[]> {
-  const datas = await notion.databases.query({
-    database_id: `${process.env.NOTION_DB}`,
-    filter: {
-      and: [
-        {
-          or: [
-            { property: 'topics', select: { equals: 'lang' } },
-            { property: 'topics', select: { equals: 'tools' } },
-          ],
-        },
-      ],
-    },
-  });
+  const [datas, social] = await Promise.all([
+    await notion.databases.query({
+      database_id: `${process.env.NOTION_DB}`,
+      filter: {
+        and: [
+          {
+            or: [
+              { property: 'topics', select: { equals: 'lang' } },
+              { property: 'topics', select: { equals: 'tools' } },
+            ],
+          },
+        ],
+      },
+    }),
+    await notion.databases.query({
+      database_id: `${process.env.NOTION_SOCIAL_DB}`,
+    }),
+  ]);
 
   return datas.results.map(({ properties }: any) => ({
     href: properties.href.url,
