@@ -14,7 +14,7 @@ export const action: ActionFunction = async ({ request }) => {
     subject: form.get('subject') as string,
   };
 
-  const page = await createContactPage(datas);
+  await createContactPage(datas);
 
   return redirect(`/contact`, {
     status: 200,
