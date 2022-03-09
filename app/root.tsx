@@ -16,11 +16,18 @@ import type {
   LinksFunction,
   ActionFunction,
   LoaderFunction,
+  HeadersFunction,
 } from 'remix';
 
 import resetStyles from '~/styles/reset.css';
 import darkStyles from '~/styles/dark.css';
 import unoStyles from '~/styles/uno.css';
+
+export const headers: HeadersFunction = () => {
+  return {
+    'Cache-Control': `max-age=${60 * 60 * 2}, public`,
+  };
+};
 
 export const meta: MetaFunction = () => {
   return { title: 'Cédric Gourville' };
