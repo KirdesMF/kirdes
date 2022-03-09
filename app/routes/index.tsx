@@ -1,26 +1,47 @@
 import { json, Link, useLoaderData } from 'remix';
 import { getNotionDatas } from '~/data/notion';
 
-import type { LoaderFunction } from 'remix';
+import type { LoaderFunction, HeadersFunction } from 'remix';
 import type { NotionData } from '~/data/notion';
 import { Icon } from '@iconify/react';
+import { getGitDatas, GitData } from '~/data/github';
 
 // - check https://www.youtube.com/watch?v=3XkU_DXcgl0 for caching
 // - https://dev.to/codefinity/remix-newsletter-7-35k7
 
-export const loader: LoaderFunction = async ({ request }) => {
-  const datas = await getNotionDatas();
+// provide data coche inside loader
+// use an export headers function to cache the route - document
 
-  return json(datas, {
-    status: 200,
-    headers: {
-      'Cache-Control': 'max-age=60, public',
-    },
-  });
+export const loader: LoaderFunction = async () => {
+  const [notion, github] = await Promise.all([
+    await getNotionDatas(),
+    await getGitDatas(),
+  ]);
+
+  const age = 120; // cache for 2 minutes
+
+  return json(
+    { notion, github },
+    {
+      status: 200,
+      headers: {
+        'Cache-Control': `max-age=${age}, public`,
+      },
+    }
+  );
+};
+
+export const headers: HeadersFunction = () => {
+  return {
+    'Cache-Control': 'max-age=12  0, public',
+  };
 };
 
 export default function Index() {
-  const datas = useLoaderData<Array<NotionData>>();
+  const datas = useLoaderData<{
+    notion: Array<NotionData>;
+    github: Array<{ node: GitData }>;
+  }>();
 
   return (
     <main className="grid gap-10">
@@ -37,10 +58,11 @@ export default function Index() {
           </article>
         </div>
       </section>
+
       <section id="about">
         <div className="wrapper grid gap-10">
-          <ul className="grid gap-5">
-            {datas.map((data) => (
+          <ul className="flex flex-wrap gap-10 justify-center">
+            {datas.notion.map((data) => (
               <li key={data.name}>
                 <Icon icon={data.icon} className="w-10 h-10 color-red-500" />
                 <a href={data.href}>{data.name}</a>
@@ -50,7 +72,18 @@ export default function Index() {
           <Link to="/resume">Resume</Link>
         </div>
       </section>
-      <section id="works"></section>
+
+      <section id="works">
+        <div className="wrapper grid gap-10">
+          <ul>
+            {datas.github.map((data) => (
+              <li key={data.node.id}>
+                <a href={data.node.url}>{data.node.description}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
       <section id="contact"></section>
     </main>
   );

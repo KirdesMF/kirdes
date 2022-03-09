@@ -7,9 +7,19 @@ export type NotionData = {
   topics: string;
 };
 
-export async function getNotionDatas() {
+export async function getNotionDatas(): Promise<NotionData[]> {
   const datas = await notion.databases.query({
     database_id: `${process.env.NOTION_DB}`,
+    filter: {
+      and: [
+        {
+          or: [
+            { property: 'topics', select: { equals: 'lang' } },
+            { property: 'topics', select: { equals: 'tools' } },
+          ],
+        },
+      ],
+    },
   });
 
   return datas.results.map(({ properties }: any) => ({

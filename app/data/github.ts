@@ -1,24 +1,78 @@
 export type GitData = {
-  id: string | number;
-  topics: Array<string>;
-  homepage?: string;
-  html_url: string;
   description: string;
+  homepageUrl?: string;
+  id: string | number;
+  name: string;
+  url: string;
+  repositoryTopics: {
+    edges: Array<{ node: { id: string; topic: { name: string } } }>;
+  };
 };
 
-export async function getGitDatas() {
-  const res = await fetch('https://api.github.com/users/KirdesMF/repos', {
-    headers: new Headers({
-      Authorization: `Bearer ${process.env.GIT_TOKEN}`,
-    }),
-  });
-  let datas = (await res.json()) as Array<GitData>;
-  datas = datas.filter((d) => d.topics.includes('portfolio'));
+export type GitHubQuery = {
+  data: {
+    user: {
+      repositories: {
+        edges: Array<{
+          node: GitData;
+        }>;
+      };
+    };
+  };
+};
 
-  return datas.map((data) => ({
-    id: data.id,
-    html_url: data.html_url,
-    description: data.description,
-    homepage: data.homepage,
-  }));
+function createQuery(name: string, first: number) {
+  return JSON.stringify({
+    query: `query GitHub($name: String!, $first: Int!) {
+      user(login: $name) {
+        repositories(isFork: false, first: $first) {
+          edges {
+            node {
+              id
+              name
+              homepageUrl
+              description
+              url
+              repositoryTopics(first: 10) {
+                edges {
+                  node {
+                    id
+                    topic {
+                      name 
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }`,
+    variables: {
+      name,
+      first,
+    },
+  });
+}
+
+export async function getGitDatas() {
+  const res = await fetch('https://api.github.com/graphql', {
+    method: 'POST',
+    headers: new Headers({
+      Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+      'Content-Type': 'application/json',
+    }),
+    body: createQuery('kirdesMF', 15),
+  });
+
+  let datas = (await res.json()) as GitHubQuery;
+  let repos = datas.data.user.repositories.edges;
+
+  return repos.filter(
+    (repo) =>
+      repo.node.repositoryTopics.edges.length > 0 ||
+      repo.node.repositoryTopics.edges.some(
+        (topic) => topic.node.topic.name === 'portfolio'
+      )
+  );
 }
