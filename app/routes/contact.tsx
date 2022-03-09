@@ -25,7 +25,12 @@ export default function Contact() {
   return (
     <main className="wrapper">
       <h1>Contact</h1>
-      <Form reloadDocument method="post" className="grid gap-5">
+      <Form
+        reloadDocument
+        method="post"
+        action="/contact"
+        className="grid gap-5"
+      >
         <label>
           Name: <input type="text" name="name" />
         </label>

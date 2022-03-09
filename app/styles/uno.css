@@ -38,6 +38,7 @@
 .color-red-500{--un-text-opacity:1;color:rgba(239,68,68,var(--un-text-opacity));}
 .hover\:text-red-600:hover{--un-text-opacity:1;color:rgba(220,38,38,var(--un-text-opacity));}
 .text-black{--un-text-opacity:1;color:rgba(0,0,0,var(--un-text-opacity));}
+.transition{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms;}
 .transition-colors-200{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:200ms;}
 .border-bottom-2{border-bottom:2px solid;}
 .border-top-2{border-top:2px solid;}

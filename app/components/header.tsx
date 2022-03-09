@@ -21,7 +21,7 @@ export function Header({ theme = 'light' }: Props) {
 
   return (
     <header className={styles.header}>
-      <Form method="post">
+      <Form method="post" action="/">
         <button className={styles.btn}>
           <span className="sr-only">Theme toggle</span>
           <Icon icon={icon[theme]} width="100%" height="100%" />
@@ -36,6 +36,8 @@ export function Header({ theme = 'light' }: Props) {
           className="rounded-full"
           src="/img/kirdes.jpg"
           alt="Kirdes profile pics"
+          width="100%"
+          height="100%"
         />
       </a>
     </header>

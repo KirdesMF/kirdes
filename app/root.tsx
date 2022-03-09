@@ -7,6 +7,7 @@ import {
   Scripts,
   ScrollRestoration,
   useLoaderData,
+  useTransition,
 } from 'remix';
 import { getCookieTheme, setCookieTheme } from './utils/cookie.server';
 import { Header } from './components/header';
@@ -35,9 +36,9 @@ export const meta: MetaFunction = () => {
 
 export const links: LinksFunction = () => {
   return [
-    { rel: 'stylesheet', href: resetStyles, as: 'style' },
-    { rel: 'stylesheet', href: darkStyles, as: 'style' },
-    { rel: 'stylesheet', href: unoStyles, as: 'style' },
+    { rel: 'stylesheet', href: resetStyles },
+    { rel: 'stylesheet', href: darkStyles },
+    { rel: 'stylesheet', href: unoStyles },
   ];
 };
 
@@ -66,9 +67,14 @@ export const action: ActionFunction = async ({ request }) => {
 
 export default function App() {
   const data = useLoaderData<{ theme: 'light' | 'dark' }>();
+  const transition = useTransition();
+  const isSubmitting = Boolean(transition.submission);
+  const theme = transition.submission?.formData.get('theme') as
+    | 'light'
+    | 'dark';
 
   return (
-    <html lang="en" className={data.theme}>
+    <html lang="en" className={isSubmitting ? theme : data.theme}>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
