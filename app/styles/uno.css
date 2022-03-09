@@ -11,6 +11,7 @@
 .hidden{display:none;}
 .h-\[50vh\]{height:50vh;}
 .h-10{height:2.5rem;}
+.min-h-\[100vh\]{min-height:100vh;}
 .min-h-\[calc\(100vh-5rem\)\]{min-height:calc(100vh - 5rem);}
 .w-10,
 .w10{width:2.5rem;}

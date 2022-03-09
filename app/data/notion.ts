@@ -64,9 +64,7 @@ export async function createContactPage(form: NotionContactData) {
         rich_text: [{ text: { content: form.message } }],
       },
       Status: {
-        select: {
-          name: 'new',
-        },
+        select: { name: 'new' },
       },
     },
   });
