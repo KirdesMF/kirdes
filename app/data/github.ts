@@ -68,11 +68,13 @@ export async function getGitDatas() {
   let datas = (await res.json()) as GitHubQuery;
   let repos = datas.data.user.repositories.edges;
 
-  return repos.filter(
-    (repo) =>
-      repo.node.repositoryTopics.edges.length > 0 ||
-      repo.node.repositoryTopics.edges.some(
-        (topic) => topic.node.topic.name === 'portfolio'
-      )
-  );
+  return repos
+    .map((repo) => repo.node)
+    .filter(
+      (repo) =>
+        repo.repositoryTopics.edges.length > 0 ||
+        repo.repositoryTopics.edges.some(
+          (topic) => topic.node.topic.name === 'portfolio'
+        )
+    );
 }

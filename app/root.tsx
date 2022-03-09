@@ -35,9 +35,9 @@ export const meta: MetaFunction = () => {
 
 export const links: LinksFunction = () => {
   return [
-    { rel: 'stylesheet', href: resetStyles },
-    { rel: 'stylesheet', href: darkStyles },
-    { rel: 'stylesheet', href: unoStyles },
+    { rel: 'stylesheet', href: resetStyles, as: 'style' },
+    { rel: 'stylesheet', href: darkStyles, as: 'style' },
+    { rel: 'stylesheet', href: unoStyles, as: 'style' },
   ];
 };
 

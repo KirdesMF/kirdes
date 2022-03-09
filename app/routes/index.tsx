@@ -42,7 +42,7 @@ export const headers: HeadersFunction = () => {
 export default function Index() {
   const datas = useLoaderData<{
     notion: Array<NotionData>;
-    github: Array<{ node: GitData }>;
+    github: Array<GitData>;
     social: Array<NotionData>;
   }>();
 
@@ -80,8 +80,8 @@ export default function Index() {
         <div className="wrapper grid gap-10">
           <ul>
             {datas.github.map((data) => (
-              <li key={data.node.id}>
-                <a href={data.node.url}>{data.node.description}</a>
+              <li key={data.id}>
+                <a href={data.url}>{data.description}</a>
               </li>
             ))}
           </ul>
