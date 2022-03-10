@@ -1,7 +1,7 @@
 import { defineConfig, presetIcons, presetUno } from 'unocss';
 
 export default defineConfig({
-  presets: [presetUno(), presetIcons()],
+  presets: [presetUno({ dark: 'class' }), presetIcons()],
   rules: [
     [
       /^border-([ltbr]|left|top|bottom|right)-(\d+)$/,

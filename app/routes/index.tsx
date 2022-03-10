@@ -67,12 +67,19 @@ export default function Index() {
           <ul className="flex flex-wrap gap-10 justify-center">
             {datas.notion.map((data) => (
               <li key={data.name}>
-                <Icon icon={data.icon} className="w-10 h-10 color-red-500" />
-                <a href={data.href}>{data.name}</a>
+                <Icon
+                  icon={data.icon}
+                  className="w-10 h-10 color-[var(--about-base)]"
+                />
+                <a className="color-[var(--text)]" href={data.href}>
+                  {data.name}
+                </a>
               </li>
             ))}
           </ul>
-          <Link to="/resume">Resume</Link>
+          <Link className="color-[var(--text)]" to="/resume">
+            Resume
+          </Link>
         </div>
       </section>
 
@@ -81,7 +88,9 @@ export default function Index() {
           <ul>
             {datas.github.map((data) => (
               <li key={data.id}>
-                <a href={data.url}>{data.description}</a>
+                <a className="color-[var(--text)]" href={data.url}>
+                  {data.description}
+                </a>
               </li>
             ))}
           </ul>
@@ -93,12 +102,19 @@ export default function Index() {
           <ul className="flex flex-wrap gap-10 justify-center">
             {datas.social.map((data) => (
               <li key={data.name}>
-                <Icon icon={data.icon} className="w-10 h-10 color-red-500" />
-                <a href={data.href}>{data.name}</a>
+                <Icon
+                  icon={data.icon}
+                  className="w-10 h-10 color-[var(--contact-base)]"
+                />
+                <a className="color-[var(--text)]" href={data.href}>
+                  {data.name}
+                </a>
               </li>
             ))}
           </ul>
-          <Link to="/contact">Contact</Link>
+          <Link className="color-[var(--text)]" to="/contact">
+            Contact
+          </Link>
         </div>
       </section>
     </main>

@@ -29,7 +29,7 @@ export default function Contact() {
         reloadDocument
         method="post"
         action="/contact"
-        className="grid gap-5"
+        className="grid gap-5 color-[var(--color)]"
       >
         <label>
           Name: <input type="text" name="name" />

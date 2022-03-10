@@ -1,0 +1,70 @@
+:root {
+  --amber6: hsl(38, 99.7%, 76.3%);
+  --amber7: hsl(36, 86.1%, 67.1%);
+  --amber8: hsl(35, 85.2%, 55.1%);
+  --amber9: hsl(39, 100%, 57%);
+  --amber10: hsl(35, 100%, 55.5%);
+  --amber11: hsl(30, 100%, 34%);
+  --amber12: hsl(20, 80%, 17%);
+
+  --green8: hsl(151 40.2% 54.1%);
+  --green9: hsl(151 55% 41.5%);
+  --green10: hsl(152 57.5% 37.6%);
+  --green11: hsl(153 67% 28.5%);
+  --green12: hsl(155 40% 14%);
+
+  --blue8: hsl(206 81.9% 65.3%);
+  --blue9: hsl(206 100% 50%);
+  --blue10: hsl(208 100% 47.3%);
+  --blue11: hsl(211 100% 43.2%);
+  --blue12: hsl(211 100% 15%);
+
+  --purple7: hsl(272 60% 80%);
+  --purple8: hsl(272 60% 73.5%);
+  --purple9: hsl(272 51% 54%);
+  --purple10: hsl(272 46.8% 50.3%);
+  --purple11: hsl(272 50% 45.8%);
+  --purple12: hsl(272 66% 16%);
+
+  --light-white: hsl(210, 0%, 100%);
+  --white: hsl(210, 0%, 95%);
+  --dark-white: hsl(210, 0%, 80%);
+  --gray8: hsl(0, 0%, 78%);
+  --gray9: hsl(0, 0%, 56.1%);
+  --gray10: hsl(0, 0%, 52.3%);
+  --gray11: hsl(0, 0%, 43.5%);
+  --light-black: hsl(210, 0%, 20%);
+  --black: hsl(210, 0%, 12%);
+  --dark-black: hsl(210 0% 2%);
+}
+
+html {
+  --body-bg: var(--white);
+  --text: var(--black);
+
+  --welcome-lighter: var(--amber6);
+  --welcome-base: var(--amber10);
+  --about-lighter: var(--green9);
+  --about-base: var(--green10);
+  --works-lighter: var(--blue9);
+  --works-base: var(--blue10);
+  --contact-lighter: var(--purple7);
+  --contact-base: var(--purple8);
+}
+
+html.light {
+  --body-bg: var(--white);
+  --text: var(--black);
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    --body-bg: var(--black);
+    --text: var(--white);
+  }
+}
+
+html.dark {
+  --body-bg: var(--black);
+  --text: var(--white);
+}

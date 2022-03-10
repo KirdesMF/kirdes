@@ -11,5 +11,5 @@ export const getCookieTheme = async (req: Request) => {
   const parsedCookie = (await setCookieTheme.parse(cookie)) as {
     theme: 'light' | 'dark';
   };
-  return parsedCookie || { theme: 'light' };
+  return parsedCookie || { theme: '' };
 };

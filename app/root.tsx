@@ -21,7 +21,7 @@ import type {
 } from 'remix';
 
 import resetStyles from '~/styles/reset.css';
-import darkStyles from '~/styles/dark.css';
+import rootStyles from '~/styles/root.css';
 import unoStyles from '~/styles/uno.css';
 
 export const headers: HeadersFunction = () => {
@@ -37,14 +37,14 @@ export const meta: MetaFunction = () => {
 export const links: LinksFunction = () => {
   return [
     { rel: 'stylesheet', href: resetStyles },
-    { rel: 'stylesheet', href: darkStyles },
+    { rel: 'stylesheet', href: rootStyles },
     { rel: 'stylesheet', href: unoStyles },
   ];
 };
 
 export const loader: LoaderFunction = async ({ request }) => {
   const cookie = await getCookieTheme(request);
-  if (!cookie.theme) cookie.theme = 'light';
+  // if (!cookie.theme) cookie.theme = 'light';
 
   return { theme: cookie.theme };
 };
@@ -81,7 +81,7 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body className="bg-[var(--background)]">
+      <body className="bg-[var(--body-bg)] color-[var(--text)]">
         <Header theme={data.theme} />
         <Outlet />
         <ScrollRestoration />
