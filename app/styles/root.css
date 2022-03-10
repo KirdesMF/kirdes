@@ -1,4 +1,24 @@
+/* https://web.dev/variable-fonts/#fallbacks */
+@font-face {
+  font-family: 'Archivo Italic';
+  src: url('/fonts/Archivo-variable.ttf') format('truetype-variations');
+  font-display: display;
+  font-weight: 100;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Epilogue';
+  src: url('/fonts/Epilogue-variable.ttf') format('truetype-variations');
+  font-display: display;
+  font-weight: 500;
+  font-style: normal;
+}
+
 :root {
+  --font-base: 'Epilogue';
+  --font-secondary: 'Archivo Italic';
+
   --amber6: hsl(38, 99.7%, 76.3%);
   --amber7: hsl(36, 86.1%, 67.1%);
   --amber8: hsl(35, 85.2%, 55.1%);

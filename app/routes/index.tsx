@@ -64,6 +64,7 @@ export default function Index() {
 
       <section id="about">
         <div className="wrapper grid gap-10">
+          <h1 className="text-8xl font-bold">About</h1>
           <ul className="flex flex-wrap gap-10 justify-center">
             {datas.notion.map((data) => (
               <li key={data.name}>
@@ -85,6 +86,7 @@ export default function Index() {
 
       <section id="works">
         <div className="wrapper grid gap-10">
+          <h1 className="text-8xl font-bold">Works</h1>
           <ul>
             {datas.github.map((data) => (
               <li key={data.id}>
@@ -99,6 +101,7 @@ export default function Index() {
 
       <section id="contact">
         <div className="wrapper grid gap-10">
+          <h1 className="text-8xl font-bold">Contact</h1>
           <ul className="flex flex-wrap gap-10 justify-center">
             {datas.social.map((data) => (
               <li key={data.name}>

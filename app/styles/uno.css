@@ -34,7 +34,7 @@
 .p-2{padding:0.5rem;}
 .px-10{padding-left:2.5rem;padding-right:2.5rem;}
 .py-5{padding-top:1.25rem;padding-bottom:1.25rem;}
-.font-bold{font-weight:700;}
+.text-8xl{font-size:6rem;line-height:1;}
 .color-\[var\(--about-base\)\]{color:var(--about-base);}
 .color-\[var\(--color\)\]{color:var(--color);}
 .color-\[var\(--contact-base\)\]{color:var(--contact-base);}
@@ -44,3 +44,6 @@
 .transition-colors-200{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:200ms;}
 .border-bottom-2{border-bottom:2px solid;}
 .border-top-2{border-top:2px solid;}
+.font-base{font-family:var(--font-base);}
+.font-bold{font-variation-settings: "wght" 900;}
+.font-regular{font-variation-settings: "wght" 400;}
