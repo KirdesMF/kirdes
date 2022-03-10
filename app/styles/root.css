@@ -62,6 +62,9 @@ html {
   --body-bg: var(--white);
   --text: var(--black);
 
+  --line: var(--gray10);
+  --circle: var(--gray8);
+
   --welcome-lighter: var(--amber6);
   --welcome-base: var(--amber10);
   --about-lighter: var(--green9);

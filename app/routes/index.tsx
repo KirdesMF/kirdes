@@ -3,8 +3,10 @@ import { getNotionDatas, getNotionSocialDatas } from '~/data/notion';
 import { getGitDatas, GitData } from '~/data/github';
 import { Icon } from '@iconify/react';
 
-import type { LoaderFunction, HeadersFunction } from 'remix';
+import type { LoaderFunction, HeadersFunction, LinksFunction } from 'remix';
 import type { NotionData } from '~/data/notion';
+
+import styles from '~/styles/index.css';
 
 // - check https://www.youtube.com/watch?v=3XkU_DXcgl0 for caching
 // - https://dev.to/codefinity/remix-newsletter-7-35k7
@@ -14,6 +16,10 @@ import type { NotionData } from '~/data/notion';
 
 // minutes in seconds
 const max_age = 60 * (60 * 2); // 2 hours
+
+export const links: LinksFunction = () => {
+  return [{ rel: 'stylesheet', href: styles }];
+};
 
 export const loader: LoaderFunction = async () => {
   const [notion, github, social] = await Promise.all([
@@ -54,7 +60,7 @@ export default function Index() {
             <div className="flex gap-5 items-center">
               <p>Cédric Gourville</p>
             </div>
-            <div className="relative grid place-items-center h-[50vh] border-gray border-2"></div>
+            <div className="relative grid place-items-center h-[50vh] border-gray border-2 bg-grid"></div>
             <div className="flex gap-5 items-center justify-end">
               <p>KirdesMF</p>
             </div>
@@ -67,12 +73,12 @@ export default function Index() {
           <h1 className="text-8xl font-bold">About</h1>
           <ul className="flex flex-wrap gap-10 justify-center">
             {datas.notion.map((data) => (
-              <li key={data.name}>
+              <li className="card-skill px-2 py-4" key={data.name}>
                 <Icon
                   icon={data.icon}
-                  className="w-10 h-10 color-[var(--about-base)]"
+                  className="w-15 h-15 color-[var(--about-base)] px-2 py-2"
                 />
-                <a className="color-[var(--text)]" href={data.href}>
+                <a className="color-[var(--text)]  text-sm" href={data.href}>
                   {data.name}
                 </a>
               </li>
@@ -104,7 +110,7 @@ export default function Index() {
           <h1 className="text-8xl font-bold">Contact</h1>
           <ul className="flex flex-wrap gap-10 justify-center">
             {datas.social.map((data) => (
-              <li key={data.name}>
+              <li className="grid place-items-center gap-2" key={data.name}>
                 <Icon
                   icon={data.icon}
                   className="w-10 h-10 color-[var(--contact-base)]"

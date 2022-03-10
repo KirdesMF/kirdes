@@ -95,7 +95,7 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body className="bg-[var(--body-bg)] color-[var(--text)] font-base font-regular">
+      <body className="bg-[var(--body-bg)] color-[var(--text)] font-base font-regular tex">
         <Header theme={data.theme} />
         <Outlet />
         <ScrollRestoration />
