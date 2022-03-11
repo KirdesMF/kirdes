@@ -6,7 +6,7 @@
   "sideEffects": false,
   "scripts": {
     "postinstall": "remix setup node",
-    "build": "build:css && build:uno && build:remix",
+    "build": "npm run build:css && npm run build:uno && npm run build:remix",
     "build:remix": "cross-env NODE_ENV=production remix build",
     "build:css": "postcss css --dir app/styles/",
     "build:uno": "unocss \"./app/**/*.{ts,tsx}\" -o ./app/styles/uno.css",
