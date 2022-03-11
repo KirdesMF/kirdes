@@ -6,8 +6,6 @@ import { Icon } from '@iconify/react';
 import type { LoaderFunction, HeadersFunction, LinksFunction } from 'remix';
 import type { NotionData } from '~/data/notion';
 
-import styles from '~/styles/index.css';
-
 // - check https://www.youtube.com/watch?v=3XkU_DXcgl0 for caching
 // - https://dev.to/codefinity/remix-newsletter-7-35k7
 
@@ -16,10 +14,6 @@ import styles from '~/styles/index.css';
 
 // minutes in seconds
 const max_age = 60 * (60 * 2); // 2 hours
-
-export const links: LinksFunction = () => {
-  return [{ rel: 'stylesheet', href: styles }];
-};
 
 export const loader: LoaderFunction = async () => {
   const [notion, github, social] = await Promise.all([
@@ -53,14 +47,14 @@ export default function Index() {
   }>();
 
   return (
-    <main className="grid gap-10">
+    <main className="grid gap-y-xl items-center">
       <section id="home">
         <div className="wrapper grid items-center min-h-[calc(100vh-5rem)]">
-          <article className="grid gap-5">
+          <article className="grid gap-2">
             <div className="flex gap-5 items-center">
               <p>Cédric Gourville</p>
             </div>
-            <div className="relative grid place-items-center h-[50vh] border-gray border-2 bg-grid"></div>
+            <div className="relative grid place-items-center h-[50vh] border-red border-2 bg-grid"></div>
             <div className="flex gap-5 items-center justify-end">
               <p>KirdesMF</p>
             </div>
@@ -69,16 +63,16 @@ export default function Index() {
       </section>
 
       <section id="about">
-        <div className="wrapper grid gap-10">
-          <h1 className="text-8xl font-bold">About</h1>
-          <ul className="flex flex-wrap gap-10 justify-center">
+        <div className="wrapper grid gap-m">
+          <h1 className="font-size-2xl font-wght-bold">About</h1>
+          <ul className="flex flex-wrap gap-s justify-center">
             {datas.notion.map((data) => (
               <li className="card-skill px-2 py-4" key={data.name}>
                 <Icon
                   icon={data.icon}
-                  className="w-15 h-15 color-[var(--about-base)] px-2 py-2"
+                  className="w-14 h-14 text-[color:var(--about-base)] px-2 py-2"
                 />
-                <a className="color-[var(--text)]  text-sm" href={data.href}>
+                <a className="font-size-2xs" href={data.href}>
                   {data.name}
                 </a>
               </li>
@@ -91,14 +85,12 @@ export default function Index() {
       </section>
 
       <section id="works">
-        <div className="wrapper grid gap-10">
-          <h1 className="text-8xl font-bold">Works</h1>
-          <ul>
+        <div className="wrapper grid gap-m">
+          <h1 className="font-size-2xl font-wght-bold">Works</h1>
+          <ul className="color-[var(--text)]">
             {datas.github.map((data) => (
               <li key={data.id}>
-                <a className="color-[var(--text)]" href={data.url}>
-                  {data.description}
-                </a>
+                <a href={data.url}>{data.description}</a>
               </li>
             ))}
           </ul>
@@ -107,15 +99,15 @@ export default function Index() {
 
       <section id="contact">
         <div className="wrapper grid gap-10">
-          <h1 className="text-8xl font-bold">Contact</h1>
-          <ul className="flex flex-wrap gap-10 justify-center">
+          <h1 className="font-size-2xl font-wght-bold">Contact</h1>
+          <ul className="flex flex-wrap gap-m justify-center">
             {datas.social.map((data) => (
-              <li className="grid place-items-center gap-2" key={data.name}>
+              <li className="grid place-items-center gap-m" key={data.name}>
                 <Icon
                   icon={data.icon}
-                  className="w-10 h-10 color-[var(--contact-base)]"
+                  className="w-10 h-10 text-[color:var(--contact-base)]"
                 />
-                <a className="color-[var(--text)]" href={data.href}>
+                <a className="font-size-xs" href={data.href}>
                   {data.name}
                 </a>
               </li>

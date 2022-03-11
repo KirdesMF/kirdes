@@ -12,6 +12,7 @@
 * {
   margin: 0;
 }
+
 /*
   Typographic tweaks!
   4. Add accessible line-height
@@ -53,17 +54,21 @@ h5,
 h6 {
   overflow-wrap: break-word;
 }
+
 a {
   color: currentcolor;
   text-decoration: underline;
 }
+
 a:hover {
   text-decoration: none;
 }
+
 ul {
   list-style: none;
   padding: 0;
 }
+
 button {
   background: none;
   border: none;

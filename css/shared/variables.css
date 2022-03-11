@@ -1,0 +1,136 @@
+:root {
+  --bp-xs: 320px;
+  --bp-sm: 576px;
+  --bp-md: 768px;
+  --bp-lg: 992px;
+  --bp-xl: 1280px;
+}
+
+:root {
+  --font-base: 'Epilogue';
+  --font-secondary: 'Archivo Italic';
+}
+
+:root {
+  --font-wght-thin: 'wght' 100;
+  --font-wght-extra-light: 'wght' 200;
+  --font-wght-light: 'wght' 300;
+  --font-wght-regular: 'wght' 400;
+  --font-wght-medium: 'wght' 500;
+  --font-wght-semi-bold: 'wght' 600;
+  --font-wght-bold: 'wght' 700;
+  --font-wght-extra-bold: 'wght' 800;
+  --font-wght-black: 'wght' 900;
+}
+
+:root {
+  --size-3xs: 0.25rem;
+  --size-2xs: 0.5rem;
+  --size-xs: 1rem;
+  --size-sm: 1.5rem;
+  --size-md: 2rem;
+  --size-lg: 3rem;
+  --size-xl: 4rem;
+  --size-2xl: 5rem;
+  --size-3xl: 6rem;
+}
+
+:root {
+  --clamp-size-3xs: clamp(0.25rem, calc(0.19rem + 0.3vw), 0.44rem);
+  --clamp-size-2xs: clamp(0.5rem, calc(0.36rem + 0.7vw), 0.94rem);
+  --clamp-size-xs: clamp(0.75rem, calc(0.55rem + 1vw), 1.38rem);
+  --clamp-size-sm: clamp(1rem, calc(0.74rem + 1.3vw), 1.81rem);
+  --clamp-size-md: clamp(1.5rem, calc(1.1rem + 2vw), 2.75rem);
+  --clamp-size-lg: clamp(2rem, calc(1.48rem + 2.6vw), 3.63rem);
+  --clamp-size-xl: clamp(3rem, calc(2.22rem + 3.9vw), 5.44rem);
+  --clamp-size-2xl: clamp(4rem, calc(2.96rem + 5.2vw), 7.25rem);
+  --clamp-size-3xl: clamp(6rem, calc(4.44rem + 7.8vw), 10.88rem);
+}
+
+:root {
+  --amber100: hsl(43, 100%, 86.8%);
+  --amber200: hsl(42, 100%, 81.8%);
+  --amber300: hsl(38, 99.7%, 76.3%);
+  --amber400: hsl(36, 86.1%, 67.1%);
+  --amber500: hsl(35, 85.2%, 55.1%);
+  --amber600: hsl(39, 100%, 57%);
+  --amber700: hsl(35, 100%, 55.5%);
+  --amber800: hsl(30, 100%, 34%);
+  --amber900: hsl(20, 80%, 17%);
+
+  --grass100: hsl(121, 47.5%, 91.4%);
+  --grass200: hsl(122, 42.6%, 86.5%);
+  --grass300: hsl(124, 39%, 79.7%);
+  --grass400: hsl(126, 37.1%, 70.2%);
+  --grass500: hsl(131, 38.1%, 56.3%);
+  --grass600: hsl(131, 41%, 46.5%);
+  --grass700: hsl(132, 43.1%, 42.2%);
+  --grass800: hsl(133, 50%, 32.5%);
+  --grass900: hsl(130, 30%, 14.9%);
+
+  --blue100: hsl(210, 98.8%, 94%);
+  --blue200: hsl(209, 95%, 90.1%);
+  --blue300: hsl(209, 81.2%, 84.5%);
+  --blue400: hsl(208, 77.5%, 76.9%);
+  --blue500: hsl(206, 81.9%, 65.3%);
+  --blue600: hsl(206, 100%, 50%);
+  --blue700: hsl(208, 100%, 47.3%);
+  --blue800: hsl(211, 100%, 43.2%);
+  --blue900: hsl(211, 100%, 15%);
+
+  --indigo100: hsl(223, 92.9%, 95%);
+  --indigo200: hsl(224, 87.1%, 92%);
+  --indigo300: hsl(224, 81.9%, 87.8%);
+  --indigo400: hsl(225, 77.4%, 82.1%);
+  --indigo500: hsl(226, 75.4%, 74.5%);
+  --indigo600: hsl(226, 70%, 55.5%);
+  --indigo700: hsl(226, 58.6%, 51.3%);
+  --indigo800: hsl(226, 55%, 45%);
+  --indigo900: hsl(226, 62%, 17%);
+
+  --gray100: hsl(0, 0%, 93%);
+  --gray200: hsl(0, 0%, 90.9%);
+  --gray300: hsl(0, 0%, 88.7%);
+  --gray400: hsl(0, 0%, 85.8%);
+  --gray500: hsl(0, 0%, 78%);
+  --gray600: hsl(0, 0%, 56.1%);
+  --gray700: hsl(0, 0%, 52.3%);
+  --gray800: hsl(0, 0%, 43.5%);
+  --gray900: hsl(0, 0%, 9%);
+
+  --dark-black: hsl(0, 0%, 0%);
+  --black: hsl(210, 0%, 12%);
+  --white: hsl(210, 0%, 100%);
+}
+
+html {
+  --body-bg: var(--white);
+  --text: var(--black);
+  --line: var(--gray500);
+  --circle: var(--gray300);
+  --welcome-lighter: var(--amber600);
+  --welcome-base: var(--amber700);
+  --about-lighter: var(--grass400);
+  --about-base: var(--grass600);
+  --works-lighter: var(--blue400);
+  --works-base: var(--blue600);
+  --contact-lighter: var(--indigo500);
+  --contact-base: var(--indigo700);
+}
+
+html.light {
+  --body-bg: var(--white);
+  --text: var(--black);
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    --body-bg: var(--black);
+    --text: var(--white);
+  }
+}
+
+html.dark {
+  --body-bg: var(--black);
+  --text: var(--white);
+}

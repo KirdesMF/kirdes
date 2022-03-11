@@ -20,9 +20,8 @@ import type {
   HeadersFunction,
 } from 'remix';
 
-import resetStyles from '~/styles/reset.css';
-import rootStyles from '~/styles/root.css';
-import unoStyles from '~/styles/uno.css';
+import mainStyles from '~/styles/main.css';
+import unocss from '~/styles/uno.css';
 
 export const headers: HeadersFunction = () => {
   return {
@@ -50,9 +49,8 @@ export const links: LinksFunction = () => {
       type: 'font/ttf',
       crossOrigin: 'anonymous',
     },
-    { rel: 'stylesheet', href: resetStyles },
-    { rel: 'stylesheet', href: rootStyles },
-    { rel: 'stylesheet', href: unoStyles },
+    { rel: 'stylesheet', href: mainStyles },
+    { rel: 'stylesheet', href: unocss },
   ];
 };
 
@@ -95,7 +93,7 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body className="bg-[var(--body-bg)] color-[var(--text)] font-base font-regular tex">
+      <body>
         <Header theme={data.theme} />
         <Outlet />
         <ScrollRestoration />

@@ -3,8 +3,10 @@ import { Icon } from '@iconify/react';
 
 const styles = {
   header:
-    'pos-sticky top-0 z-10 w-full px-10 py-5 mx-auto flex items-center justify-between border-bottom-2',
-  btn: 'color-[var(--color)] hover:color-[var(--welcome-base)] font-bold p-2 rounded transition-colors-200 h-10 w-10',
+    'pos-sticky top-0 z-10 w-full px-10 py-5 mx-auto flex items-center justify-between border-bottom-2 ',
+  btn: 'relative color-[var(--text)] rounded-full h-10 w-10 border-[var(--dark-black)] border-2 bg-[var(--body-bg)] p-2',
+  shadow:
+    'absolute top-[3px] left-0 bg-[var(--dark-black)] w-full h-full rounded-full -z-1 border-[var(--dark-black)] border-2',
 };
 
 const icon = {
@@ -22,12 +24,15 @@ export function Header({ theme }: Props) {
   return (
     <header className={styles.header}>
       <Form method="post" action="/">
-        <button className={styles.btn}>
-          <span className="sr-only">Theme toggle</span>
-          <Icon icon={icon[currentTheme]} width="100%" height="100%" />
+        <input type="hidden" name="location" value={pathname} />
+        <input type="hidden" name="theme" value={currentTheme} />
 
-          <input type="hidden" name="location" value={pathname} />
-          <input type="hidden" name="theme" value={currentTheme} />
+        <button className={styles.btn}>
+          <span className="bg-[var(--body-bg)]">
+            <Icon icon={icon[currentTheme]} width="100%" height="100%" />
+          </span>
+          <span className={styles.shadow}></span>
+          <span className="sr-only">Theme toggle</span>
         </button>
       </Form>
 
