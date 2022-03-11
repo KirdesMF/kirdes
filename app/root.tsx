@@ -20,8 +20,8 @@ import type {
   HeadersFunction,
 } from 'remix';
 
-import mainStyles from '~/styles/main.css';
-import unocss from '~/styles/uno.css';
+import mainStyles from '~/css/main.css';
+import unocss from '~/css/uno.css';
 
 export const headers: HeadersFunction = () => {
   return {
