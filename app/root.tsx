@@ -21,7 +21,7 @@ import type {
 } from 'remix';
 
 import mainStyles from '~/css/main.css';
-import unocss from '~/css/uno.css';
+import unoStyles from '~/css/uno.css';
 
 export const headers: HeadersFunction = () => {
   return {
@@ -50,7 +50,7 @@ export const links: LinksFunction = () => {
       crossOrigin: 'anonymous',
     },
     { rel: 'stylesheet', href: mainStyles },
-    { rel: 'stylesheet', href: unocss },
+    { rel: 'stylesheet', href: unoStyles },
   ];
 };
 

@@ -23,6 +23,7 @@ body {
 
 a {
   color: var(--text);
+  text-underline-offset: 0.2em;
 }
 
 .bg-grid {
@@ -47,6 +48,7 @@ a {
     var(--about-base) 58%,
     var(--about-base) 100%
   );
+
   display: grid;
   grid-template-rows: 6rem min-content;
   grid-template-columns: minmax(0, 7rem);
@@ -57,6 +59,15 @@ a {
   box-shadow: -5px 5px 0px var(--dark-black);
 }
 
-.flow {
-  font-size: 5rem;
+.wrapper {
+  width: min(100% - 2rem, 65rem);
+  margin-inline: auto;
+}
+
+.flow > * + * {
+  margin-block-start: var(--flow-space, var(--size-2xl));
+}
+
+.flow-small > * + * {
+  margin-block-start: var(--size-xs);
 }
