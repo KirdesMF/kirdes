@@ -8,13 +8,12 @@
     "postinstall": "remix setup node",
     "build": "concurrently npm:build:*",
     "build:remix": "cross-env NODE_ENV=production remix build",
-    "build:tailwind": "npx tailwindcss -o ./app/styles/tailwind.css",
     "build:css": "postcss css --dir app/styles/",
+    "build:uno": "unocss \"./app/**/*.{ts,tsx}\" -o ./app/styles/uno.css",
     "dev": "concurrently npm:dev:*",
     "dev:remix": "cross-env NODE_ENV=development remix dev",
-    "tailwind": "npx tailwindcss -o ./app/styles/tailwind.css -w",
-    "dev:uno": "unocss \"./app/**/*.{ts,tsx}\" -o ./app/styles/uno.css -w",
-    "dev:css": "postcss css --dir app/styles/ -w"
+    "dev:css": "postcss css --dir app/styles/ -w",
+    "dev:uno": "unocss \"./app/**/*.{ts,tsx}\" -o ./app/styles/uno.css -w"
   },
   "dependencies": {
     "@notionhq/client": "^1.0.1",
