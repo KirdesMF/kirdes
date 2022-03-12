@@ -6,6 +6,8 @@ import { Icon } from '@iconify/react';
 import type { LoaderFunction, HeadersFunction } from 'remix';
 import type { NotionData } from '~/data/notion';
 
+import styles from '~/css/routes/index.css';
+
 // - check https://www.youtube.com/watch?v=3XkU_DXcgl0 for caching
 // - https://dev.to/codefinity/remix-newsletter-7-35k7
 
@@ -29,6 +31,13 @@ export const headers: HeadersFunction = () => {
   };
 };
 
+/**
+ *
+ *
+ *
+ *
+ */
+export const links = () => [{ rel: 'stylesheet', href: styles }];
 /**
  *
  *
@@ -71,32 +80,39 @@ export default function Index() {
   }>();
 
   return (
-    <main className="flow">
+    <main className="grid gap-y-8xl">
       <section id="home">
-        <div className="wrapper grid items-center min-h-[calc(100vh-5rem)]">
-          <article className="flow flow-space-xs">
+        <div className="wrapper grid items-center min-h-[var(--offset-header)]">
+          <article className="grid gap-y-2">
             <div className="flex items-center">
-              <p>Cédric Gourville</p>
+              <p className="font-wght-extra-light font-size-sm">
+                Cédric Gourville
+              </p>
             </div>
-            <div className="relative grid place-items-center h-[50vh] border-red border-2 bg-grid"></div>
+            <div className="relative grid place-items-center h-[50vh] border-[var(--gray500)] border-3 bg-grid">
+              <span className="font-clamp-2xl font-wght-black">Kirdes</span>
+            </div>
             <div className="flex items-center justify-end">
-              <p>KirdesMF</p>
+              <p className="font-wght-extra-light font-size-sm">KirdesMF</p>
             </div>
           </article>
         </div>
       </section>
 
       <section id="about">
-        <div className="wrapper flow">
-          <h1 className="text-8xl font-wght-bold">About</h1>
-          <ul className="flex flex-wrap gap-xs justify-center">
+        <div className="wrapper grid gap-y-4xl">
+          <h1 className="font-clamp-2xl font-wght-bold">About</h1>
+          <ul className="flex flex-wrap gap-5 justify-center">
             {datas.notion.map((data) => (
-              <li className="card-skill px-2 py-4" key={data.name}>
+              <li className="card-skill px-4 py-5" key={data.name}>
                 <Icon
                   icon={data.icon}
                   className="w-14 h-14 text-[color:var(--about-base)] px-2 py-2"
                 />
-                <a className="text-xs font-wght-extra-light" href={data.href}>
+                <a
+                  className="font-size-xs font-wght-extra-light"
+                  href={data.href}
+                >
                   {data.name}
                 </a>
               </li>
@@ -111,9 +127,9 @@ export default function Index() {
       </section>
 
       <section id="works">
-        <div className="wrapper flow">
-          <h1 className="text-8xl font-wght-bold">Works</h1>
-          <ul className="flow-small color-[var(--text)]">
+        <div className="wrapper grid gap-y-4xl">
+          <h1 className="font-clamp-2xl font-wght-bold">Works</h1>
+          <ul className="color-[var(--text)]">
             {datas.github.map((data) => (
               <li key={data.id}>
                 <a href={data.url}>{data.description}</a>
@@ -124,8 +140,8 @@ export default function Index() {
       </section>
 
       <section id="contact">
-        <div className="wrapper flow">
-          <h1 className="text-8xl font-wght-bold">Contact</h1>
+        <div className="wrapper grid gap-y-4xl">
+          <h1 className="font-clamp-2xl font-wght-bold">Contact</h1>
           <ul className="flex flex-wrap justify-center gap-x-5">
             {datas.social.map((data) => (
               <li className="grid place-items-center gap-y-2" key={data.name}>

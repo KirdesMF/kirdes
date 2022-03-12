@@ -5,13 +5,15 @@ export default defineConfig({
 
   rules: [
     [
-      /^flow-space-(.*)$/,
-      (match) => ({ '--flow-space': `var(--size-${match[1]})` }),
-    ],
-    [
       /^font-(base|secondary)$/,
       (match) => ({
         'font-family': `var(--font-${match[1]})`,
+      }),
+    ],
+    [
+      /^font-size-(.*)$/,
+      (match) => ({
+        'font-size': `var(--size-${match[1]})`,
       }),
     ],
     [
@@ -21,7 +23,13 @@ export default defineConfig({
       }),
     ],
     [
-      /^border-([ltbr]|left|top|bottom|right)-(\d+)$/,
+      /^font-clamp-(.*)$/,
+      (match) => ({
+        'font-size': `var(--clamp-size-${match[1]})`,
+      }),
+    ],
+    [
+      /^border-(left|top|bottom|right)-(\d+)$/,
       (match) => ({
         [`border-${match[1]}`]: `${match[2]}px solid`,
       }),

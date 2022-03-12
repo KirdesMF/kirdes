@@ -1,0 +1,24 @@
+.card-skill {
+  --gradient-about: linear-gradient(
+    120deg,
+    var(--about-base) 0%,
+    var(--about-base) 20%,
+    var(--about-lighter) 20%,
+    var(--about-lighter) 50%,
+    var(--about-base) 50%,
+    var(--about-base) 55%,
+    var(--about-lighter) 55%,
+    var(--about-lighter) 58%,
+    var(--about-base) 58%,
+    var(--about-base) 100%
+  );
+
+  display: grid;
+  grid-template-rows: 6rem min-content;
+  grid-template-columns: minmax(0, 7rem);
+  place-items: center;
+
+  border: 2px solid var(--dark-black);
+  background-color: var(--bg-base);
+  box-shadow: -5px 5px 0px var(--dark-black);
+}
