@@ -24,18 +24,6 @@
 }
 
 :root {
-  --size-3xs: 0.25rem;
-  --size-2xs: 0.5rem;
-  --size-xs: 0.75rem;
-  --size-sm: 1rem;
-  --size-md: 1.5rem;
-  --size-lg: 2rem;
-  --size-xl: 3rem;
-  --size-2xl: 4rem;
-  --size-3xl: 6rem;
-}
-
-:root {
   --clamp-size-3xs: clamp(0.25rem, calc(0.19rem + 0.3vw), 0.44rem);
   --clamp-size-2xs: clamp(0.5rem, calc(0.36rem + 0.7vw), 0.94rem);
   --clamp-size-xs: clamp(0.75rem, calc(0.55rem + 1vw), 1.38rem);
@@ -58,15 +46,15 @@
   --amber800: hsl(30, 100%, 34%);
   --amber900: hsl(20, 80%, 17%);
 
-  --grass100: hsl(121, 47.5%, 91.4%);
-  --grass200: hsl(122, 42.6%, 86.5%);
-  --grass300: hsl(124, 39%, 79.7%);
-  --grass400: hsl(126, 37.1%, 70.2%);
-  --grass500: hsl(131, 38.1%, 56.3%);
-  --grass600: hsl(131, 41%, 46.5%);
-  --grass700: hsl(132, 43.1%, 42.2%);
-  --grass800: hsl(133, 50%, 32.5%);
-  --grass900: hsl(130, 30%, 14.9%);
+  --green100: hsl(140, 48.7%, 91%);
+  --green200: hsl(141, 43.7%, 86%);
+  --green300: hsl(143, 40.3%, 79%);
+  --green400: hsl(146, 38.5%, 69%);
+  --green500: hsl(151, 40.2%, 54.1%);
+  --green600: hsl(151, 55%, 41.5%);
+  --green700: hsl(152, 57.5%, 37.6%);
+  --green800: hsl(153, 67%, 28.5%);
+  --green900: hsl(155, 40%, 14%);
 
   --blue100: hsl(210, 98.8%, 94%);
   --blue200: hsl(209, 95%, 90.1%);
@@ -108,12 +96,12 @@ html {
   --text: var(--black);
   --line: var(--gray500);
   --circle: var(--gray300);
-  --welcome-lighter: var(--amber600);
-  --welcome-base: var(--amber700);
-  --about-lighter: var(--grass400);
-  --about-base: var(--grass600);
-  --works-lighter: var(--blue400);
-  --works-base: var(--blue600);
+  --welcome-lighter: var(--blue400);
+  --welcome-base: var(--blue600);
+  --about-lighter: var(--green600);
+  --about-base: var(--green700);
+  --works-lighter: var(--amber600);
+  --works-base: var(--amber700);
   --contact-lighter: var(--indigo500);
   --contact-base: var(--indigo700);
 }

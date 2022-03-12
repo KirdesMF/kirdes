@@ -6,6 +6,7 @@ import { Icon } from '@iconify/react';
 import type { NotionData } from '~/data/notion';
 
 import styles from '~/css/routes/index.css';
+import { CardSKill } from '~/components/cards';
 
 // - check https://www.youtube.com/watch?v=3XkU_DXcgl0 for caching
 // - https://dev.to/codefinity/remix-newsletter-7-35k7
@@ -83,20 +84,18 @@ export default function Index() {
   const tools = datas.notion.filter((data) => data.topic === 'tools');
 
   return (
-    <main className="grid gap-y-8xl">
+    <main className="grid gap-$clamp-size-xl">
       <section id="home">
         <div className="wrapper grid items-center min-h-$offset-header">
           <article className="grid gap-y-2">
             <div className="flex items-center">
-              <p className="font-wght-extra-light font-size-sm">
-                Cédric Gourville
-              </p>
+              <p className="text-wght-extra-light text-sm">Cédric Gourville</p>
             </div>
-            <div className="relative grid place-items-center h-[50vh] border-$gray500 border-3 bg-grid">
-              <span className="font-clamp-2xl font-wght-black">Kirdes</span>
+            <div className="relative grid place-items-center h-50vh border-$gray500 border-3 bg-grid">
+              <span className="text-clamp-2xl text-wght-black">Kirdes</span>
             </div>
             <div className="flex items-center justify-end">
-              <p className="font-wght-extra-light font-size-sm">KirdesMF</p>
+              <p className="text-wght-extra-light text-sm">KirdesMF</p>
             </div>
           </article>
         </div>
@@ -104,30 +103,27 @@ export default function Index() {
 
       <section id="about">
         <div className="wrapper grid gap-y-6xl">
-          <h1 className="font-clamp-2xl font-wght-bold">About</h1>
+          <h1 className="text-clamp-2xl text-wght-bold">About</h1>
           {[langs, libs, tools].map((datas, idx) => (
-            <ul
+            <div
               key={idx}
-              className="flex flex-wrap gap-5 justify-center border-$dark-black border-3 px-2 py-8 rounded-lg"
+              className="border-$dark-black border-3 rounded-lg px-6 py-8"
             >
-              {datas.map((data) => (
-                <li className="card-skill px-4 py-5" key={data.name}>
-                  <Icon
-                    className="w-14 h-14 text-[color:var(--about-base)] px-2 py-2"
-                    icon={data.icon}
-                  />
-                  <a
-                    className="font-size-xs font-wght-extra-light"
-                    href={data.href}
-                  >
-                    {data.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
+              <ul className="flex flex-wrap gap-5 justify-center">
+                {datas.map((data) => (
+                  <li key={data.name}>
+                    <CardSKill
+                      icon={data.icon}
+                      name={data.name}
+                      href={data.href}
+                    />
+                  </li>
+                ))}
+              </ul>
+            </div>
           ))}
           <div>
-            <Link className="color-[var(--text)]" to="/resume">
+            <Link className="color-$text" to="/resume">
               Resume
             </Link>
           </div>
@@ -136,8 +132,8 @@ export default function Index() {
 
       <section id="works">
         <div className="wrapper grid gap-y-4xl">
-          <h1 className="font-clamp-2xl font-wght-bold">Works</h1>
-          <ul className="color-[var(--text)] grid gap-y-2">
+          <h1 className="text-clamp-2xl text-wght-bold">Works</h1>
+          <ul className="color-$text grid gap-y-2">
             {datas.github.map((data) => (
               <li key={data.id}>
                 <div className="flex gap-x-3">
@@ -156,15 +152,15 @@ export default function Index() {
 
       <section id="contact">
         <div className="wrapper grid gap-y-4xl">
-          <h1 className="font-clamp-2xl font-wght-bold">Contact</h1>
+          <h1 className="text-clamp-xl text-wght-bold">Contact</h1>
           <ul className="flex flex-wrap justify-center gap-x-5">
             {datas.social.map((data) => (
               <li className="grid place-items-center gap-y-2" key={data.name}>
                 <Icon
-                  className="w-10 h-10 text-[color:var(--contact-base)]"
+                  className="w-10 h-10 color-$contact-base"
                   icon={data.icon}
                 />
-                <a className="font-wght-extra-light" href={data.href}>
+                <a className="text-wght-extra-light" href={data.href}>
                   {data.name}
                 </a>
               </li>

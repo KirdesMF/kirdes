@@ -3,7 +3,7 @@ import { Link } from 'remix';
 export default function Resume() {
   return (
     <main className="min-h-[100vh] wrapper">
-      <h1>Resume ok ok</h1>
+      <h1>Resume</h1>
       <Link to="/">Home</Link>
 
       <iframe

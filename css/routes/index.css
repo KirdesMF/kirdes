@@ -45,13 +45,19 @@
     var(--contact-base) 100%
   );
 }
+.gradient-about {
+  background-image: var(--gradient-about);
+}
+.gradient-works {
+  background-image: var(--gradient-works);
+}
+.gradient-contact {
+  background-image: var(--gradient-contact);
+}
 
 .card-skill {
   display: grid;
-  grid-template-rows: 6rem min-content;
-  grid-template-columns: minmax(0, 7rem);
-  place-items: center;
-  border: 2px solid var(--dark-black);
-  background-color: var(--bg-base);
+  grid-template-rows: 6.5rem min-content;
+  grid-template-columns: minmax(0, 8.5rem);
   box-shadow: -5px 5px 0px var(--dark-black);
 }
