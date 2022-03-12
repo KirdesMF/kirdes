@@ -87,7 +87,7 @@
   --gray900: hsl(0, 0%, 9%);
 
   --dark-black: hsl(0, 0%, 0%);
-  --black: hsl(210, 0%, 12%);
+  --black: hsl(210, 0%, 15%);
   --white: hsl(210, 0%, 100%);
 }
 
@@ -100,13 +100,13 @@ html {
   --welcome-lighter: var(--blue400);
   --welcome-base: var(--blue600);
 
-  --about-lighter: var(--green700);
-  --about-base: var(--green800);
+  --about-lighter: var(--amber300);
+  --about-base: var(--amber400);
 
-  --works-lighter: var(--amber600);
-  --works-base: var(--amber700);
+  --works-lighter: var(--blue600);
+  --works-base: var(--blue700);
 
-  --contact-lighter: var(--indigo500);
+  --contact-lighter: var(--indigo600);
   --contact-base: var(--indigo700);
 }
 

@@ -20,12 +20,12 @@ const icons = {
 
 const styles = {
   wrapper:
-    'card-skill-wrapper relative border-$dark-black border-3 rounded-lg other-grid',
+    'card-skill-wrapper relative border-$dark-black border-4 rounded-lg other-grid',
   title:
     'place-self-start text-base px-8 py-2 bg-$dark-black color-$white rounded-br-lg font-secondary',
   card: 'card-skill shadow-card bg-$body-bg border-2 border-$dark-black',
   link: 'py-4 px-2 border-top-2 border-t-$dark-black grid place-items-center gradient-about',
-  icon: 'absolute -bottom-6 -right-6 rounded-full w-12 h-12 p3 border-2 border-$dark-black gradient-about shadow-rounded',
+  icon: 'hidden lg:block absolute -bottom-6 -right-6 rounded-full w-12 h-12 p3 border-2 border-$dark-black gradient-about shadow-rounded',
 };
 
 export function CardsSkill(props: CardsSkillProps) {
@@ -43,7 +43,7 @@ export function CardsSkill(props: CardsSkillProps) {
               <div className={styles.link}>
                 <a
                   href={data.href}
-                  className="text-sm text-wght-bold w-full h-full text-center"
+                  className="text-sm text-wght-bold color-$dark-black w-full h-full text-center"
                 >
                   {data.name}
                 </a>

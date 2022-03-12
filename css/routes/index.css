@@ -75,3 +75,14 @@
   grid-template-rows: 7rem min-content;
   grid-template-columns: minmax(0, 8.3rem);
 }
+
+.card-project-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 28rem), 1fr));
+  gap: 1.5rem;
+}
+
+.card-project {
+  display: grid;
+  grid-template-rows: 12rem min-content;
+}

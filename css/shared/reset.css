@@ -13,6 +13,10 @@
   margin: 0;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 /*
   Typographic tweaks!
   4. Add accessible line-height

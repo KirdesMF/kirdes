@@ -7,6 +7,7 @@ import type { NotionData } from '~/data/notion';
 
 import styles from '~/css/routes/index.css';
 import { CardsSkill } from '~/components/cards';
+import { ElasticLine } from '~/components/elastic-line';
 
 // - check https://www.youtube.com/watch?v=3XkU_DXcgl0 for caching
 // - https://dev.to/codefinity/remix-newsletter-7-35k7
@@ -48,6 +49,7 @@ export const links = () => [{ rel: 'stylesheet', href: styles }];
  *
  */
 export const loader = async () => {
+  const year = new Date().getFullYear();
   const [notion, github, social] = await Promise.all([
     await getNotionDatas(),
     await getGitDatas(),
@@ -55,7 +57,7 @@ export const loader = async () => {
   ]);
 
   return json(
-    { notion, github, social },
+    { notion, github, social, year },
     {
       status: 200,
       headers: {
@@ -77,6 +79,7 @@ export default function Index() {
     notion: Array<NotionData>;
     github: Array<GitData>;
     social: Array<NotionData>;
+    year: number;
   }>();
 
   const langs = datas.notion.filter((data) => data.topic === 'langs');
@@ -88,14 +91,23 @@ export default function Index() {
       <section id="home">
         <div className="wrapper grid items-center min-h-$offset-header">
           <article className="grid gap-y-2">
-            <div className="flex items-center">
-              <p className="text-wght-light text-sm">Cédric Gourville</p>
+            <div className="flex items-center gap-x-xs">
+              <p className="text-wght-light font-secondary text-sm">
+                Cédric Gourville
+              </p>
+              <ElasticLine />
             </div>
-            <div className="relative grid place-items-center h-50vh border-$gray500 border-3 bg-grid">
-              <span className="text-clamp-2xl text-wght-black">Kirdes</span>
+            <div className="relative grid place-items-center h-50vh border-$dark-black border-3 bg-grid">
+              <span className="text-clamp-2xl text-wght-black">
+                Kirdes
+                <ElasticLine width="100%" />
+              </span>
             </div>
-            <div className="flex items-center justify-end">
-              <p className="text-wght-light text-sm">KirdesMF</p>
+            <div className="flex items-center gap-x-xs justify-end">
+              <ElasticLine />
+              <p className="text-wght-light font-secondary text-sm">
+                KirdesMF - {datas.year}
+              </p>
             </div>
           </article>
         </div>
@@ -103,7 +115,11 @@ export default function Index() {
 
       <section id="about">
         <div className="wrapper grid gap-y-6xl">
-          <h1 className="text-clamp-2xl text-wght-bold">About</h1>
+          <header className="flex gap-x-xs items-baseline">
+            <h1 className="text-clamp-2xl text-wght-bold">About</h1>
+            <ElasticLine />
+          </header>
+
           {[langs, libs, tools].map((datas, idx) => (
             <CardsSkill key={idx} title={datas[idx].topic} datas={datas} />
           ))}
@@ -116,16 +132,47 @@ export default function Index() {
       <section id="works">
         <div className="wrapper grid gap-y-4xl">
           <h1 className="text-clamp-2xl text-wght-bold">Works</h1>
-          <ul className="color-$text grid gap-y-2">
+
+          <ul className="card-project-wrapper color-$text grid gap-y-xs">
             {datas.github.map((data) => (
               <li key={data.id}>
-                <div className="flex gap-x-3">
-                  <a href={data.url}>{data.description}</a>
-                  {data.homepageUrl && (
-                    <a className="color-$works-base" href={data.homepageUrl}>
-                      Live
-                    </a>
-                  )}
+                <div className="card-project border-3 border-$dark-black shadow-card">
+                  <div className="bis-grid grid place-items-center py-4">
+                    <h2 className="font-secondary text-xl text-wght-bold">
+                      {data.description}
+                    </h2>
+                    <div className="flex wrap gap-x-4">
+                      <a
+                        href={data.url}
+                        className="gradient-works shadow-rounded py-2 px-3xl border-2 border-$dark-black rounded-3xl text-wght-medium text-sm"
+                      >
+                        Github
+                      </a>
+                      {data.homepageUrl && (
+                        <a
+                          className="gradient-works shadow-rounded py-2 px-3xl border-2 border-$dark-black rounded-3xl text-wght-medium text-sm"
+                          href={data.homepageUrl}
+                        >
+                          Live
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                  <div>
+                    <ul className="flex gap-x-3 px-4 py-6 border-top-3 border-$dark-black">
+                      {data.repositoryTopics.edges.map(
+                        (topic) =>
+                          topic.node.topic.name !== 'portfolio' && (
+                            <li key={topic.node.id}>
+                              <Icon
+                                className="color-$works-base w-5 h-5"
+                                icon={`simple-icons:${topic.node.topic.name}`}
+                              />
+                            </li>
+                          )
+                      )}
+                    </ul>
+                  </div>
                 </div>
               </li>
             ))}
@@ -136,6 +183,7 @@ export default function Index() {
       <section id="contact">
         <div className="wrapper grid gap-y-4xl">
           <h1 className="text-clamp-xl text-wght-bold">Contact</h1>
+
           <ul className="flex flex-wrap justify-center gap-x-5">
             {datas.social.map((data) => (
               <li className="grid place-items-center gap-y-2" key={data.name}>
