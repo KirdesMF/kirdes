@@ -79,6 +79,10 @@ export default function Index() {
     social: Array<NotionData>;
   }>();
 
+  const langs = datas.notion.filter((data) => data.topic === 'langs');
+  const libs = datas.notion.filter((data) => data.topic === 'libs');
+  const tools = datas.notion.filter((data) => data.topic === 'tools');
+
   return (
     <main className="grid gap-y-8xl">
       <section id="home">
@@ -100,24 +104,29 @@ export default function Index() {
       </section>
 
       <section id="about">
-        <div className="wrapper grid gap-y-4xl">
+        <div className="wrapper grid gap-y-6xl">
           <h1 className="font-clamp-2xl font-wght-bold">About</h1>
-          <ul className="flex flex-wrap gap-5 justify-center">
-            {datas.notion.map((data) => (
-              <li className="card-skill px-4 py-5" key={data.name}>
-                <Icon
-                  icon={data.icon}
-                  className="w-14 h-14 text-[color:var(--about-base)] px-2 py-2"
-                />
-                <a
-                  className="font-size-xs font-wght-extra-light"
-                  href={data.href}
-                >
-                  {data.name}
-                </a>
-              </li>
-            ))}
-          </ul>
+          {[langs, libs, tools].map((datas, idx) => (
+            <ul
+              key={idx}
+              className="flex flex-wrap gap-5 justify-center border-[var(--dark-black)] border-3 px-2 py-8 rounded-lg"
+            >
+              {datas.map((data) => (
+                <li className="card-skill px-4 py-5" key={data.name}>
+                  <Icon
+                    icon={data.icon}
+                    className="w-14 h-14 text-[color:var(--about-base)] px-2 py-2"
+                  />
+                  <a
+                    className="font-size-xs font-wght-extra-light"
+                    href={data.href}
+                  >
+                    {data.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          ))}
           <div>
             <Link className="color-[var(--text)]" to="/resume">
               Resume

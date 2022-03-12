@@ -23,16 +23,35 @@ import type {
 import mainStyles from '~/css/main.css';
 import unoStyles from '~/css/uno.css';
 
+/**
+ *
+ *
+ *
+ *
+ *
+ */
 export const headers: HeadersFunction = () => {
   return {
     'Cache-Control': `max-age=${60 * 60 * 2}, public`,
   };
 };
 
+/**
+ *
+ *
+ *
+ *
+ */
 export const meta: MetaFunction = () => {
   return { title: 'Cédric Gourville' };
 };
 
+/**
+ *
+ *
+ *
+ *
+ */
 export const links: LinksFunction = () => {
   return [
     {
@@ -54,6 +73,14 @@ export const links: LinksFunction = () => {
   ];
 };
 
+/**
+ *
+ *
+ *
+ *
+ *
+ *
+ */
 export const loader: LoaderFunction = async ({ request }) => {
   const cookie = await getCookieTheme(request);
   // if (!cookie.theme) cookie.theme = 'light';
@@ -61,6 +88,13 @@ export const loader: LoaderFunction = async ({ request }) => {
   return { theme: cookie.theme };
 };
 
+/**
+ *
+ *
+ *
+ *
+ *
+ */
 export const action: ActionFunction = async ({ request }) => {
   const form = await request.formData();
   const cookie = await getCookieTheme(request);
@@ -77,6 +111,12 @@ export const action: ActionFunction = async ({ request }) => {
   });
 };
 
+/**
+ *
+ *
+ *
+ *
+ */
 export default function App() {
   const data = useLoaderData<{ theme: 'light' | 'dark' }>();
   const transition = useTransition();
