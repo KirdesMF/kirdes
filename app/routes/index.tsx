@@ -6,7 +6,7 @@ import { Icon } from '@iconify/react';
 import type { NotionData } from '~/data/notion';
 
 import styles from '~/css/routes/index.css';
-import { CardSKill } from '~/components/cards';
+import { CardsSkill } from '~/components/cards';
 
 // - check https://www.youtube.com/watch?v=3XkU_DXcgl0 for caching
 // - https://dev.to/codefinity/remix-newsletter-7-35k7
@@ -89,13 +89,13 @@ export default function Index() {
         <div className="wrapper grid items-center min-h-$offset-header">
           <article className="grid gap-y-2">
             <div className="flex items-center">
-              <p className="text-wght-extra-light text-sm">Cédric Gourville</p>
+              <p className="text-wght-light text-sm">Cédric Gourville</p>
             </div>
             <div className="relative grid place-items-center h-50vh border-$gray500 border-3 bg-grid">
               <span className="text-clamp-2xl text-wght-black">Kirdes</span>
             </div>
             <div className="flex items-center justify-end">
-              <p className="text-wght-extra-light text-sm">KirdesMF</p>
+              <p className="text-wght-light text-sm">KirdesMF</p>
             </div>
           </article>
         </div>
@@ -105,28 +105,11 @@ export default function Index() {
         <div className="wrapper grid gap-y-6xl">
           <h1 className="text-clamp-2xl text-wght-bold">About</h1>
           {[langs, libs, tools].map((datas, idx) => (
-            <div
-              key={idx}
-              className="border-$dark-black border-3 rounded-lg px-6 py-8"
-            >
-              <ul className="flex flex-wrap gap-5 justify-center">
-                {datas.map((data) => (
-                  <li key={data.name}>
-                    <CardSKill
-                      icon={data.icon}
-                      name={data.name}
-                      href={data.href}
-                    />
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <CardsSkill key={idx} title={datas[idx].topic} datas={datas} />
           ))}
-          <div>
-            <Link className="color-$text" to="/resume">
-              Resume
-            </Link>
-          </div>
+          <Link className="color-$text" to="/resume">
+            Resume
+          </Link>
         </div>
       </section>
 

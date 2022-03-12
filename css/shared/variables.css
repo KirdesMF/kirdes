@@ -94,14 +94,18 @@
 html {
   --body-bg: var(--white);
   --text: var(--black);
-  --line: var(--gray500);
-  --circle: var(--gray300);
+  --line: var(--gray900);
+  --circle: var(--gray700);
+
   --welcome-lighter: var(--blue400);
   --welcome-base: var(--blue600);
-  --about-lighter: var(--green600);
-  --about-base: var(--green700);
+
+  --about-lighter: var(--green700);
+  --about-base: var(--green800);
+
   --works-lighter: var(--amber600);
   --works-base: var(--amber700);
+
   --contact-lighter: var(--indigo500);
   --contact-base: var(--indigo700);
 }

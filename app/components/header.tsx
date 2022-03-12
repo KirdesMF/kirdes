@@ -3,7 +3,7 @@ import { Icon } from '@iconify/react';
 
 const styles = {
   header:
-    'pos-sticky top-0 z-10 w-full h-$header-height px-10 mx-auto flex items-center justify-between border-bottom-2 ',
+    'pos-sticky top-0 z-10 w-full h-$header-height px-10 mx-auto flex items-center justify-between border-bottom-2 bg-$body-bg',
   btn: 'relative color-$text rounded-full h-10 w-10 border-$text border-2 bg-$body-bg p-2',
   shadow:
     'absolute top-[3px] left-0 bg-$text w-full h-full rounded-full -z-1 border-b-$text border-bottom-2',
