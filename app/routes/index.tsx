@@ -142,9 +142,11 @@ export default function Index() {
               <li key={data.id}>
                 <div className="flex gap-x-3">
                   <a href={data.url}>{data.description}</a>
-                  <a className="color-$works-base" href={data.homepageUrl}>
-                    Live
-                  </a>
+                  {data.homepageUrl && (
+                    <a className="color-$works-base" href={data.homepageUrl}>
+                      Live
+                    </a>
+                  )}
                 </div>
               </li>
             ))}
