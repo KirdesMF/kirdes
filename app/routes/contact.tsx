@@ -24,7 +24,7 @@ export const action: ActionFunction = async ({ request }) => {
 export default function Contact() {
   return (
     <main className="wrapper">
-      <h1>Contact</h1>
+      <h1>Contactez moi</h1>
       <Form
         reloadDocument
         method="post"

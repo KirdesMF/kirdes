@@ -3,18 +3,24 @@
   margin-inline: auto;
 }
 
-.flow > * + * {
-  margin-block-start: var(--flow-space, var(--size-2xl));
-}
-
-.flow-small > * + * {
-  margin-block-start: var(--size-xs);
-}
-
 .bg-grid {
+  background-size: 50px 50px;
+  background-position: 0 0, 0 -25.5px, -25.5px -25.5px;
   background-image: radial-gradient(var(--circle) 1px, transparent 2px),
     linear-gradient(var(--line) 0.04rem, transparent 0.04rem),
     linear-gradient(90deg, var(--line) 0.04rem, transparent 0.04rem);
-  background-size: 50px 50px;
-  background-position: 0 0, 0 -25.5px, -25.5px -25.5px;
+}
+
+.other-grid {
+  background-size: 15px 15px;
+  background-position: 0 0, 5px 5px;
+  background-image: linear-gradient(var(--line) 0.04rem, transparent 0.04rem),
+    linear-gradient(90deg, var(--line) 0.04rem, transparent 0.04rem);
+}
+
+.bis-grid {
+  background-size: 20px 20px;
+  background-position: -5px -5px, -5px -5px;
+  background-image: linear-gradient(var(--line) 0.04rem, transparent 0.04rem),
+    linear-gradient(90deg, var(--line) 0.04rem, transparent 0.04rem);
 }

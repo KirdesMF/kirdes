@@ -8,8 +8,6 @@ type StackProps = {
 export function Stack(props: StackProps) {
   const { gap = 'size-xs' } = props;
 
-  const test = 'gap-$' + gap;
-
   return (
     <div className={` flex flex-col gap-$size-xs flow-space-$md `}>
       {props.children}
