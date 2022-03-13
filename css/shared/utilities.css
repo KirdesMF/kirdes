@@ -1,8 +1,13 @@
 /**TODO use gradient as border and use element as shadow for animation*/
 
 .wrapper {
-  width: min(100% - 2rem, 60rem);
+  --width: 60rem;
+  width: min(100% - 2rem, var(--width));
   margin-inline: auto;
+}
+
+.wrapper[data-small] {
+  --width: 50rem;
 }
 
 .ring-shadow {
@@ -29,8 +34,8 @@
 
 .bg-grid-50 {
   background-size: 50px 50px;
-  background-position: 0 0, 0 -25.5px, -25.5px -25.5px;
-  background-image: radial-gradient(var(--circle) 1px, transparent 2px),
+  background-position: 1px 1px, -25px -25px, -25px -25px;
+  background-image: radial-gradient(var(--circle) 2px, transparent 3px),
     linear-gradient(var(--line) 0.04rem, transparent 0.04rem),
     linear-gradient(90deg, var(--line) 0.04rem, transparent 0.04rem);
 }

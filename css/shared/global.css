@@ -43,7 +43,7 @@
 
 :root {
   --font-base: 'Epilogue', sans-serif;
-  --font-secondary: 'Archivo Italic', serif;
+  --font-secondary: 'Archivo Italic', sans-serif;
 }
 
 :root {

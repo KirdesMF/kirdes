@@ -90,7 +90,7 @@ html {
   --body-bg: var(--white);
   --text: var(--black);
   --line: var(--gray900);
-  --circle: var(--gray700);
+  --circle: var(--dark-black);
 
   --welcome-lighter: var(--blue400);
   --welcome-base: var(--blue600);
