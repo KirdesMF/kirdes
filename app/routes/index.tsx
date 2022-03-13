@@ -187,7 +187,7 @@ export default function Index() {
 
       <section id="contact">
         <div className="wrapper grid gap-y-4xl">
-          <h1 className="text-clamp-xl font-bold">Contact</h1>
+          <h1 className="text-clamp-xl font-black">Contact</h1>
 
           <ul className="flex flex-wrap justify-center gap-x-5">
             {datas.social.map((data) => (

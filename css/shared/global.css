@@ -1,32 +1,37 @@
 /* https://web.dev/variable-fonts/#fallbacks */
-@font-face {
-  font-family: 'Archivo Italic';
-  src: url('/fonts/Archivo-variable.ttf') format('truetype-variations'),
-    url('/fonts/Archivo-variable.ttf') format('truetype supports variations');
-  font-weight: 100 900;
-  font-stretch: 62% 125%;
-  font-display: swap;
+@supports not (font-variation-settings: normal) {
+  @font-face {
+    font-family: 'Epilogue';
+    src: url('/fonts/Epilogue-Regular.ttf');
+    font-weight: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Archivo Italic';
+    src: url('/fonts/Archivo-Bold.woff');
+    font-display: swap;
+    font-weight: bold;
+  }
 }
 
-@font-face {
-  font-family: 'Epilogue';
-  src: url('/fonts/Epilogue-variable.ttf') format('truetype-variations'),
-    url('/fonts/Epilogue-variable.ttf') format('truetype supports variations');
-  font-weight: 100 900;
-  font-display: swap;
-}
+@supports (font-variation-settings: normal) {
+  @font-face {
+    font-family: 'Epilogue';
+    src: url('/fonts/Epilogue-variable.ttf') format('truetype-variations'),
+      url('/fonts/Epilogue-variable.ttf') format('truetype supports variations');
+    font-weight: 100 900;
+    font-display: swap;
+  }
 
-@font-face {
-  font-family: 'Manrope';
-  src: url('/fonts/Manrope.woff2') format('woff2-variations'),
-    url('/fonts/Manrope.woff2') format('woff2 supports variations');
-  font-weight: 100 900;
-  font-display: swap;
-}
-
-:root {
-  --header-height: 5rem;
-  --offset-header: calc(100vh - var(--header-height));
+  @font-face {
+    font-family: 'Archivo Italic';
+    src: url('/fonts/Archivo-variable.ttf') format('truetype-variations'),
+      url('/fonts/Archivo-variable.ttf') format('truetype supports variations');
+    font-weight: 100 900;
+    font-stretch: 62% 125%;
+    font-display: swap;
+  }
 }
 
 body {
