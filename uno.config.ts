@@ -1,16 +1,5 @@
 import { defineConfig, presetIcons, presetUno } from 'unocss';
 
-const fonts = [
-  'thin',
-  'extra-light',
-  'light',
-  'regular',
-  'medium',
-  'semi-bold',
-  'bold',
-  'black',
-].join('|');
-
 const ranges = ['3xs', '2xs', 'xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl'].join(
   '|'
 );

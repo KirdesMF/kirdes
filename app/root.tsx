@@ -21,6 +21,7 @@ import type {
 
 import mainStyles from '~/css/main.css';
 import unoStyles from '~/css/uno.css';
+import { Footer } from './components/footer';
 
 /**
  *
@@ -108,6 +109,7 @@ export default function App() {
       <body>
         <Header theme={isSubmitting ? theme : data.theme} />
         <Outlet />
+        <Footer />
         <ScrollRestoration />
         <Scripts />
         <LiveReload />

@@ -92,8 +92,8 @@ html {
   --line: var(--gray800);
   --circle: var(--gray600);
 
-  --welcome-lighter: var(--blue400);
-  --welcome-base: var(--blue600);
+  --welcome-lighter: var(--amber300);
+  --welcome-base: var(--amber400);
 
   --about-lighter: var(--amber300);
   --about-base: var(--amber400);

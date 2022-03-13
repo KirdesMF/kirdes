@@ -27,9 +27,9 @@ const icons = {
 export function CardsSkill(props: CardsSkillProps) {
   return (
     <div className="card-skill-wrapper relative border-$dark-black border-4 rounded-xl bg-grid-15">
-      <h2 className="place-self-start text-base px-8 py-2 bg-$dark-black color-$white rounded-br-xl font-secondary">
+      <h3 className="place-self-start text-base px-8 py-2 bg-$dark-black color-$white rounded-br-xl font-secondary">
         {titles[props.title]}
-      </h2>
+      </h3>
 
       <ul className="flex flex-wrap gap-5 justify-center px-4">
         {props.datas.map((data) => (

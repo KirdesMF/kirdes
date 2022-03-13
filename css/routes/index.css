@@ -68,15 +68,20 @@
 
 .card-skill {
   display: grid;
-  grid-template-rows: 7rem min-content;
-  grid-template-columns: minmax(0, 8.3rem);
+  grid-template-rows: 6rem min-content;
+  grid-template-columns: minmax(0, 7.3rem);
 }
 
 /*---------- works ---------------*/
+.card-project-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 25rem), 1fr));
+  gap: 2rem;
+}
+
 .card-project {
   display: grid;
   grid-template-rows: 12rem min-content;
-  grid-template-columns: minmax(0, 25rem);
 }
 
 /*---------- contact ---------------*/

@@ -8,6 +8,9 @@ import type { NotionData } from '~/data/notion';
 import styles from '~/css/routes/index.css';
 import { CardsSkill } from '~/components/cards';
 import { ElasticLine } from '~/components/elastic-line';
+import { TextPanel } from '~/components/text-panel';
+import { PatternDivider } from '~/components/divider';
+import { SVGRibbon } from '~/components/svgs';
 
 // - check https://www.youtube.com/watch?v=3XkU_DXcgl0 for caching
 // - https://dev.to/codefinity/remix-newsletter-7-35k7
@@ -70,7 +73,7 @@ export default function Index() {
   const tools = datas.notion.filter((data) => data.topic === 'tools');
 
   return (
-    <main className="grid gap-$clamp-size-xl">
+    <main className="grid gap-$clamp-size-2xl p-b-$clamp-size-2xl">
       <section id="home">
         <div className="wrapper grid items-center min-h-$offset-header">
           <article className="grid gap-y-2">
@@ -80,9 +83,21 @@ export default function Index() {
               </p>
               <ElasticLine />
             </div>
-            <div className="relative grid place-items-center h-55vh md:border-shadow-5 bg-grid-50">
-              <span className="text-clamp-2xl font-black">Kirdes</span>
+
+            <div className="relative grid place-items-center h-55vh md:border-3 border-$dark-black bg-grid-50">
+              <h1 className="text-clamp-2xl font-black">Kirdes</h1>
+
+              <Link
+                to="/resume"
+                className="absolute w-[8rem] h-[8rem] -bottom-[4rem] -left-[4rem] hidden xl:grid grid-center-area"
+              >
+                <SVGRibbon />
+                <span className="z-1 font-bold font-secondary color-$dark-black">
+                  For hire
+                </span>
+              </Link>
             </div>
+
             <div className="flex items-center gap-x-xs justify-end">
               <ElasticLine />
               <p className="font-light font-secondary text-sm">
@@ -93,38 +108,52 @@ export default function Index() {
         </div>
       </section>
 
+      <PatternDivider end="about" />
+
       <section id="about">
-        <div className="wrapper grid gap-y-6xl">
+        <div className="wrapper grid gap-$clamp-size-2xl">
           <header className="flex gap-x-xs items-baseline">
-            <h1 className="text-clamp-2xl font-black">About</h1>
+            <h2 className="text-clamp-2xl font-black">About</h2>
             <ElasticLine />
           </header>
 
           {[langs, libs, tools].map((datas, idx) => (
-            <CardsSkill key={idx} title={datas[idx].topic} datas={datas} />
+            <div key={idx} className="grid gap-y-8">
+              <TextPanel content="lorem ipsum" />
+              <CardsSkill title={datas[idx].topic} datas={datas} />
+            </div>
           ))}
+
           <Link className="color-$text" to="/resume">
             Resume
           </Link>
         </div>
       </section>
 
-      <section id="works">
-        <div className="wrapper grid gap-y-4xl">
-          <h1 className="text-clamp-2xl font-black">Works</h1>
+      <PatternDivider end="works" />
 
-          <ul className="flex flex-wrap items-center justify-center gap-8 color-$text grid">
+      <section id="works">
+        <div className="wrapper grid gap-$clamp-size-2xl">
+          <header className="flex gap-x-xs items-baseline">
+            <h2 className="text-clamp-2xl font-black">Works</h2>
+            <ElasticLine />
+          </header>
+
+          <TextPanel content="Some projects..." />
+
+          <ul className="card-project-wrapper color-$text">
             {datas.github.map((data, idx) => (
               <li key={data.id}>
                 <article className="card-project border-3 border-$dark-black shadow-card">
                   <div className="bg-grid-25 grid place-items-center py-4">
-                    <h2 className="font-secondary text-xl font-bold">
+                    <h3 className="font-secondary text-xl font-bold">
                       {data.description}
-                    </h2>
+                    </h3>
+
                     <div className="flex flex-wrap gap-4 justify-center">
                       <a
-                        href={data.url}
                         className="gradient-works shadow-rounded py-2 px-3xl border-2 border-$dark-black rounded-3xl font-medium text-sm"
+                        href={data.url}
                       >
                         Github
                       </a>
@@ -138,15 +167,14 @@ export default function Index() {
                       )}
                     </div>
                   </div>
+
                   <div className="flex justify-between items-center border-top-3 border-$dark-black px-6 py-6 ">
                     <span className="font-secondary font-bold">{idx + 1}</span>
                     <div className="flex gap-x-3 ">
                       {data.repositoryTopics.edges.map((topic) => {
                         const icon = topic.node.topic.name;
                         const isFolio = topic.node.topic.name === 'portfolio';
-
                         if (isFolio) return null;
-
                         return (
                           <span key={topic.node.id}>
                             <Icon
@@ -165,13 +193,19 @@ export default function Index() {
         </div>
       </section>
 
+      <PatternDivider end="contact" />
+
       <section id="contact">
         <div className="wrapper grid gap-y-4xl">
+          <h2 className="sr-only">Contact</h2>
+
+          <TextPanel content="Get in touch" />
+
           <ul className="flex flex-wrap justify-center gap-5">
             {datas.social.map((data) => (
               <li key={data.name}>
                 <article className="card-contact">
-                  <span className="color-$contact-base p-3 border-2 border-$dark-black">
+                  <span className="color-$white p-3 border-3 border-$dark-black gradient-contact">
                     <Icon icon={data.icon} width="100%" height="100%" />
                   </span>
                   <div className="bg-grid-15 grid place-items-center">
@@ -183,6 +217,7 @@ export default function Index() {
               </li>
             ))}
           </ul>
+
           <div>
             <Link className="color-$text" to="/contact">
               Contact

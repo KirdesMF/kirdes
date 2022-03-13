@@ -6,6 +6,7 @@
   margin-inline: auto;
 }
 
+/*------------shadow--------------  */
 .ring-shadow {
   box-shadow: 0 0 0 3px var(--dark-black);
 }
@@ -18,16 +19,20 @@
   box-shadow: 0 3px 0 var(--dark-black);
 }
 
+/*------- gradient-------------*/
 .gradient-about {
   background-image: var(--gradient-about);
 }
+
 .gradient-works {
   background-image: var(--gradient-works);
 }
+
 .gradient-contact {
   background-image: var(--gradient-contact);
 }
 
+/*------- gradient grid-------------*/
 .bg-grid-50 {
   background-size: 50px 50px;
   background-position: 0 0, -25px -25px, -25px -25px;
@@ -57,4 +62,13 @@
   background-position: 0 0, 5px 5px;
   background-image: linear-gradient(var(--body-bg) 0.04rem, transparent 0.04rem),
     linear-gradient(90deg, var(--body-bg) 0.04rem, transparent 0.04rem);
+}
+
+.grid-center-area {
+  grid-template-areas: 'area';
+  place-items: center;
+}
+
+.grid-center-area > * {
+  grid-area: area;
 }
