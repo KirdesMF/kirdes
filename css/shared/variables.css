@@ -7,8 +7,8 @@
 }
 
 :root {
-  --font-base: 'Epilogue';
-  --font-secondary: 'Archivo Italic';
+  --font-base: 'Epilogue', sans-serif;
+  --font-secondary: 'Archivo Italic', serif;
 }
 
 :root {

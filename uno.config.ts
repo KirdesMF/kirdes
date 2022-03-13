@@ -41,12 +41,6 @@ export default defineConfig({
       }),
     ],
     [
-      new RegExp(`^text-wght-(${fonts})$`),
-      (match) => ({
-        'font-variation-settings': `var(--font-wght-${match[1]})`,
-      }),
-    ],
-    [
       /^border-(left|top|bottom|right)-(\d+)$/,
       (match) => ({
         [`border-${match[1]}-width`]: `${match[2]}px`,

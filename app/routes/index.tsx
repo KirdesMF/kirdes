@@ -1,7 +1,7 @@
 import { json, Link, useLoaderData } from 'remix';
 import { getNotionDatas, getNotionSocialDatas } from '~/data/notion';
 import { getGitDatas, GitData } from '~/data/github';
-import { Icon, iconExists } from '@iconify/react';
+import { Icon } from '@iconify/react';
 
 import type { NotionData } from '~/data/notion';
 
@@ -92,20 +92,20 @@ export default function Index() {
         <div className="wrapper grid items-center min-h-$offset-header">
           <article className="grid gap-y-2">
             <div className="flex items-center gap-x-xs">
-              <p className="text-wght-light font-secondary text-sm">
+              <p className="font-light font-secondary text-sm">
                 Cédric Gourville
               </p>
               <ElasticLine />
             </div>
             <div className="relative grid place-items-center h-50vh md:border-shadow-5 bg-grid-50">
-              <span className="text-clamp-2xl text-wght-black">
+              <span className="text-clamp-2xl font-black">
                 Kirdes
                 <ElasticLine width="100%" />
               </span>
             </div>
             <div className="flex items-center gap-x-xs justify-end">
               <ElasticLine />
-              <p className="text-wght-light font-secondary text-sm">
+              <p className="font-light font-secondary text-sm">
                 KirdesMF - {datas.year}
               </p>
             </div>
@@ -116,7 +116,7 @@ export default function Index() {
       <section id="about">
         <div className="wrapper grid gap-y-6xl">
           <header className="flex gap-x-xs items-baseline">
-            <h1 className="text-clamp-2xl text-wght-bold">About</h1>
+            <h1 className="text-clamp-2xl font-black">About</h1>
             <ElasticLine />
           </header>
 
@@ -131,26 +131,26 @@ export default function Index() {
 
       <section id="works">
         <div className="wrapper grid gap-y-4xl">
-          <h1 className="text-clamp-2xl text-wght-bold">Works</h1>
+          <h1 className="text-clamp-2xl font-black">Works</h1>
 
           <ul className="flex flex-wrap items-center justify-center gap-8 color-$text grid">
             {datas.github.map((data, idx) => (
               <li key={data.id}>
                 <article className="card-project border-3 border-$dark-black shadow-card">
                   <div className="bg-grid-25 grid place-items-center py-4">
-                    <h2 className="font-secondary text-xl text-wght-bold">
+                    <h2 className="font-secondary text-xl font-bold">
                       {data.description}
                     </h2>
                     <div className="flex flex-wrap gap-4 justify-center">
                       <a
                         href={data.url}
-                        className="gradient-works shadow-rounded py-2 px-3xl border-2 border-$dark-black rounded-3xl text-wght-medium text-sm"
+                        className="gradient-works shadow-rounded py-2 px-3xl border-2 border-$dark-black rounded-3xl font-medium text-sm"
                       >
                         Github
                       </a>
                       {data.homepageUrl && (
                         <a
-                          className="gradient-works shadow-rounded py-2 px-3xl border-2 border-$dark-black rounded-3xl text-wght-medium text-sm"
+                          className="gradient-works shadow-rounded py-2 px-3xl border-2 border-$dark-black rounded-3xl font-medium text-sm"
                           href={data.homepageUrl}
                         >
                           Live
@@ -159,30 +159,24 @@ export default function Index() {
                     </div>
                   </div>
                   <div className="flex justify-between items-center border-top-3 border-$dark-black px-6 py-6 ">
-                    <span className="font-secondary text-wght-bold">
-                      {idx + 1}
-                    </span>
-                    <ul className="flex gap-x-3 ">
+                    <span className="font-secondary font-bold">{idx + 1}</span>
+                    <div className="flex gap-x-3 ">
                       {data.repositoryTopics.edges.map((topic) => {
                         const icon = topic.node.topic.name;
-                        const isExist = iconExists(`simple-icons:${icon}`);
                         const isFolio = topic.node.topic.name === 'portfolio';
 
                         if (isFolio) return null;
+
                         return (
-                          <li key={topic.node.id}>
+                          <div key={topic.node.id}>
                             <Icon
                               className="color-$works-base w-5 h-5"
-                              icon={
-                                isExist
-                                  ? `simple-icons:${topic.node.topic.name}`
-                                  : 'simple-icons:github'
-                              }
+                              icon={`simple-icons:${icon}`}
                             />
-                          </li>
+                          </div>
                         );
                       })}
-                    </ul>
+                    </div>
                   </div>
                 </article>
               </li>
@@ -193,7 +187,7 @@ export default function Index() {
 
       <section id="contact">
         <div className="wrapper grid gap-y-4xl">
-          <h1 className="text-clamp-xl text-wght-bold">Contact</h1>
+          <h1 className="text-clamp-xl font-bold">Contact</h1>
 
           <ul className="flex flex-wrap justify-center gap-x-5">
             {datas.social.map((data) => (
@@ -202,7 +196,7 @@ export default function Index() {
                   className="w-10 h-10 color-$contact-base"
                   icon={data.icon}
                 />
-                <a className="text-wght-extra-light" href={data.href}>
+                <a className="font-extra-light" href={data.href}>
                   {data.name}
                 </a>
               </li>

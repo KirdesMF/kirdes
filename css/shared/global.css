@@ -1,18 +1,27 @@
 /* https://web.dev/variable-fonts/#fallbacks */
 @font-face {
   font-family: 'Archivo Italic';
-  src: url('/fonts/Archivo-variable.ttf') format('truetype-variations');
+  src: url('/fonts/Archivo-variable.ttf') format('truetype-variations'),
+    url('/fonts/Archivo-variable.ttf') format('truetype supports variations');
+  font-weight: 100 900;
+  font-stretch: 62% 125%;
   font-display: swap;
-  font-weight: 100;
-  font-style: italic;
 }
 
 @font-face {
   font-family: 'Epilogue';
-  src: url('/fonts/Epilogue-variable.ttf') format('truetype-variations');
+  src: url('/fonts/Epilogue-variable.ttf') format('truetype-variations'),
+    url('/fonts/Epilogue-variable.ttf') format('truetype supports variations');
+  font-weight: 100 900;
   font-display: swap;
-  font-weight: 500;
-  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Manrope';
+  src: url('/fonts/Manrope.woff2') format('woff2-variations'),
+    url('/fonts/Manrope.woff2') format('woff2 supports variations');
+  font-weight: 100 900;
+  font-display: swap;
 }
 
 :root {
