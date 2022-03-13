@@ -89,8 +89,8 @@
 html {
   --body-bg: var(--white);
   --text: var(--black);
-  --line: var(--gray900);
-  --circle: var(--dark-black);
+  --line: var(--gray800);
+  --circle: var(--gray600);
 
   --welcome-lighter: var(--blue400);
   --welcome-base: var(--blue600);

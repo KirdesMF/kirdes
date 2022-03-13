@@ -78,3 +78,11 @@
   grid-template-rows: 12rem min-content;
   grid-template-columns: minmax(0, 25rem);
 }
+
+/*---------- contact ---------------*/
+.card-contact {
+  display: grid;
+  grid-template-columns: 3rem 12.5rem;
+  grid-template-rows: 3rem;
+  gap: 0.75rem;
+}

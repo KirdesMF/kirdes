@@ -15,9 +15,6 @@ import { ElasticLine } from '~/components/elastic-line';
 // provide data coche inside loader
 // use an export headers function to cache the route - document
 
-// minutes in seconds
-const max_age = 60 * (60 * 2); // 2 hours
-
 /**
  *
  *
@@ -28,7 +25,7 @@ const max_age = 60 * (60 * 2); // 2 hours
  */
 export const headers = () => {
   return {
-    'Cache-Control': `max-age=${max_age}, public`,
+    'Cache-Control': `max-age=0, s-maxage=86400`,
   };
 };
 
@@ -61,7 +58,7 @@ export const loader = async () => {
     {
       status: 200,
       headers: {
-        'Cache-Control': `max-age=${max_age}, public`,
+        'Cache-Control': `max-age=0, s-maxage=86400`,
       },
     }
   );
@@ -165,12 +162,12 @@ export default function Index() {
                         if (isFolio) return null;
 
                         return (
-                          <div key={topic.node.id}>
+                          <span key={topic.node.id}>
                             <Icon
                               className="color-$works-base w-5 h-5"
                               icon={`simple-icons:${icon}`}
                             />
-                          </div>
+                          </span>
                         );
                       })}
                     </div>
@@ -184,18 +181,19 @@ export default function Index() {
 
       <section id="contact">
         <div className="wrapper grid gap-y-4xl">
-          <h1 className="text-clamp-xl font-black">Contact</h1>
-
-          <ul className="flex flex-wrap justify-center gap-x-5">
+          <ul className="flex flex-wrap justify-center gap-5">
             {datas.social.map((data) => (
-              <li className="grid place-items-center gap-y-2" key={data.name}>
-                <Icon
-                  className="w-10 h-10 color-$contact-base"
-                  icon={data.icon}
-                />
-                <a className="font-extra-light" href={data.href}>
-                  {data.name}
-                </a>
+              <li key={data.name}>
+                <article className="card-contact">
+                  <span className="color-$contact-base p-3 border-2 border-$dark-black">
+                    <Icon icon={data.icon} width="100%" height="100%" />
+                  </span>
+                  <div className="bg-grid-15 grid place-items-center">
+                    <a className="font-medium font-secondary" href={data.href}>
+                      {data.name}
+                    </a>
+                  </div>
+                </article>
               </li>
             ))}
           </ul>
