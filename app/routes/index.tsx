@@ -43,6 +43,9 @@ export const loader = async () => {
     { notion, github, social, year },
     {
       status: 200,
+      headers: {
+        'Cache-Control': 'public, max-age=86000',
+      },
     }
   );
 };
