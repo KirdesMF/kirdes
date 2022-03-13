@@ -45,29 +45,25 @@
     var(--contact-base) 100%
   );
 }
-.gradient-about {
-  background-image: var(--gradient-about);
-}
-.gradient-works {
-  background-image: var(--gradient-works);
-}
-.gradient-contact {
-  background-image: var(--gradient-contact);
-}
 
-.shadow-card {
-  box-shadow: -7px 7px 0px var(--dark-black);
-}
-
-.shadow-rounded {
-  box-shadow: 0 3px 0 var(--dark-black);
-}
-
+/*------------------- about --------------------*/
 .card-skill-wrapper {
   display: grid;
   place-items: center;
   grid-template-rows: 2.5rem 1fr 2.5rem;
   gap: 1.5rem;
+}
+
+.card-skill-wrapper__icon {
+  position: absolute;
+  bottom: -1.5rem;
+  right: -1.5rem;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  border: 2px solid var(--dark-black);
+  padding: 0.75rem;
+  background-image: var(--gradient-about);
 }
 
 .card-skill {
@@ -76,13 +72,9 @@
   grid-template-columns: minmax(0, 8.3rem);
 }
 
-.card-project-wrapper {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 28rem), 1fr));
-  gap: 1.5rem;
-}
-
+/*---------- works ---------------*/
 .card-project {
   display: grid;
   grid-template-rows: 12rem min-content;
+  grid-template-columns: minmax(0, 25rem);
 }

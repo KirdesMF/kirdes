@@ -1,6 +1,12 @@
 import { Icon } from '@iconify/react';
 import type { NotionData } from '~/data/notion';
 
+/**
+ *
+ *
+ *
+ *
+ */
 type CardsSkillProps = {
   datas: Array<NotionData>;
   title: 'langs' | 'tools' | 'libs';
@@ -18,29 +24,21 @@ const icons = {
   tools: 'i-iconoir-edit-pencil',
 };
 
-const styles = {
-  wrapper:
-    'card-skill-wrapper relative border-$dark-black border-4 rounded-lg other-grid',
-  title:
-    'place-self-start text-base px-8 py-2 bg-$dark-black color-$white rounded-br-lg font-secondary',
-  card: 'card-skill shadow-card bg-$body-bg border-2 border-$dark-black',
-  link: 'py-4 px-2 border-top-2 border-t-$dark-black grid place-items-center gradient-about',
-  icon: 'hidden lg:block absolute -bottom-6 -right-6 rounded-full w-12 h-12 p3 border-2 border-$dark-black gradient-about shadow-rounded',
-};
-
 export function CardsSkill(props: CardsSkillProps) {
   return (
-    <div className={styles.wrapper}>
-      <h2 className={styles.title}>{titles[props.title]}</h2>
+    <div className="card-skill-wrapper relative border-$dark-black border-4 rounded-xl bg-grid-15">
+      <h2 className="place-self-start text-base px-8 py-2 bg-$dark-black color-$white rounded-br-xl font-secondary">
+        {titles[props.title]}
+      </h2>
 
-      <ul className="flex flex-wrap gap-5 justify-center">
+      <ul className="flex flex-wrap gap-5 justify-center px-4">
         {props.datas.map((data) => (
           <li key={data.name}>
-            <article className={styles.card}>
+            <article className="card-skill shadow-card bg-$body-bg border-2 border-$dark-black">
               <div className="grid place-items-center">
                 <Icon icon={data.icon} className="w-12 h-12 color-$text" />
               </div>
-              <div className={styles.link}>
+              <div className="py-4 px-2 border-top-2 border-t-$dark-black grid place-items-center gradient-about">
                 <a
                   href={data.href}
                   className="text-sm text-wght-bold color-$dark-black w-full h-full text-center"
@@ -53,7 +51,7 @@ export function CardsSkill(props: CardsSkillProps) {
         ))}
       </ul>
 
-      <div className={styles.icon}>
+      <div className="card-skill-wrapper__icon shadow-rounded hidden lg:block">
         <span
           // prettier-ignore
           className={`${icons[props.title]} block h-full w-full color-$dark-black`}

@@ -1,7 +1,7 @@
 import { json, Link, useLoaderData } from 'remix';
 import { getNotionDatas, getNotionSocialDatas } from '~/data/notion';
 import { getGitDatas, GitData } from '~/data/github';
-import { Icon } from '@iconify/react';
+import { Icon, iconExists } from '@iconify/react';
 
 import type { NotionData } from '~/data/notion';
 
@@ -97,7 +97,7 @@ export default function Index() {
               </p>
               <ElasticLine />
             </div>
-            <div className="relative grid place-items-center h-50vh border-$dark-black border-3 bg-grid">
+            <div className="relative grid place-items-center h-50vh md:border-shadow-5 bg-grid-50">
               <span className="text-clamp-2xl text-wght-black">
                 Kirdes
                 <ElasticLine width="100%" />
@@ -133,15 +133,15 @@ export default function Index() {
         <div className="wrapper grid gap-y-4xl">
           <h1 className="text-clamp-2xl text-wght-bold">Works</h1>
 
-          <ul className="card-project-wrapper color-$text grid gap-y-xs">
-            {datas.github.map((data) => (
+          <ul className="flex flex-wrap items-center justify-center gap-8 color-$text grid">
+            {datas.github.map((data, idx) => (
               <li key={data.id}>
-                <div className="card-project border-3 border-$dark-black shadow-card">
-                  <div className="bis-grid grid place-items-center py-4">
+                <article className="card-project border-3 border-$dark-black shadow-card">
+                  <div className="bg-grid-25 grid place-items-center py-4">
                     <h2 className="font-secondary text-xl text-wght-bold">
                       {data.description}
                     </h2>
-                    <div className="flex wrap gap-x-4">
+                    <div className="flex flex-wrap gap-4 justify-center">
                       <a
                         href={data.url}
                         className="gradient-works shadow-rounded py-2 px-3xl border-2 border-$dark-black rounded-3xl text-wght-medium text-sm"
@@ -158,22 +158,33 @@ export default function Index() {
                       )}
                     </div>
                   </div>
-                  <div>
-                    <ul className="flex gap-x-3 px-4 py-6 border-top-3 border-$dark-black">
-                      {data.repositoryTopics.edges.map(
-                        (topic) =>
-                          topic.node.topic.name !== 'portfolio' && (
-                            <li key={topic.node.id}>
-                              <Icon
-                                className="color-$works-base w-5 h-5"
-                                icon={`simple-icons:${topic.node.topic.name}`}
-                              />
-                            </li>
-                          )
-                      )}
+                  <div className="flex justify-between items-center border-top-3 border-$dark-black px-6 py-6 ">
+                    <span className="font-secondary text-wght-bold">
+                      {idx + 1}
+                    </span>
+                    <ul className="flex gap-x-3 ">
+                      {data.repositoryTopics.edges.map((topic) => {
+                        const icon = topic.node.topic.name;
+                        const isExist = iconExists(`simple-icons:${icon}`);
+                        const isFolio = topic.node.topic.name === 'portfolio';
+
+                        if (isFolio) return null;
+                        return (
+                          <li key={topic.node.id}>
+                            <Icon
+                              className="color-$works-base w-5 h-5"
+                              icon={
+                                isExist
+                                  ? `simple-icons:${topic.node.topic.name}`
+                                  : 'simple-icons:github'
+                              }
+                            />
+                          </li>
+                        );
+                      })}
                     </ul>
                   </div>
-                </div>
+                </article>
               </li>
             ))}
           </ul>

@@ -53,5 +53,11 @@ export default defineConfig({
         [`border-${match[1]}-style`]: 'solid',
       }),
     ],
+    [
+      /^border-shadow-(\d+)$/,
+      (match) => ({
+        'box-shadow': `0 0 0 ${match[1]}px var(--dark-black)`,
+      }),
+    ],
   ],
 });
