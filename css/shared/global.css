@@ -2,6 +2,12 @@
 @supports not (font-variation-settings: normal) {
   @font-face {
     font-family: 'Epilogue';
+    src: url('/fonts/Epilogue-Black.ttf');
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Epilogue';
     src: url('/fonts/Epilogue-Regular.ttf');
     font-display: swap;
   }
