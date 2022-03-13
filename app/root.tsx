@@ -30,11 +30,11 @@ import unoStyles from '~/css/uno.css';
  *
  *
  */
-export const headers: HeadersFunction = () => {
-  return {
-    'Cache-Control': `max-age=0, s-maxage=86400`,
-  };
-};
+// export const headers: HeadersFunction = () => {
+//   return {
+//     'Cache-Control': `max-age=0, s-maxage=86400`,
+//   };
+// };
 
 /**
  *
