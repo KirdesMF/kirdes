@@ -17,24 +17,10 @@ import type {
   LinksFunction,
   ActionFunction,
   LoaderFunction,
-  HeadersFunction,
 } from 'remix';
 
 import mainStyles from '~/css/main.css';
 import unoStyles from '~/css/uno.css';
-
-/**
- *
- *
- *
- *
- *
- */
-// export const headers: HeadersFunction = () => {
-//   return {
-//     'Cache-Control': `max-age=0, s-maxage=86400`,
-//   };
-// };
 
 /**
  *

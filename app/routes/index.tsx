@@ -20,20 +20,6 @@ import { ElasticLine } from '~/components/elastic-line';
  *
  *
  *
- *
- *
- */
-export const headers = () => {
-  return {
-    'Cache-Control': `max-age=0, s-maxage=86400`,
-  };
-};
-
-/**
- *
- *
- *
- *
  */
 export const links = () => [{ rel: 'stylesheet', href: styles }];
 /**
@@ -57,9 +43,6 @@ export const loader = async () => {
     { notion, github, social, year },
     {
       status: 200,
-      headers: {
-        'Cache-Control': `max-age=0, must-revalidate`,
-      },
     }
   );
 };
