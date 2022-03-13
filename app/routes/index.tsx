@@ -58,7 +58,7 @@ export const loader = async () => {
     {
       status: 200,
       headers: {
-        'Cache-Control': `max-age=0, s-maxage=86400`,
+        'Cache-Control': `max-age=0, must-revalidate`,
       },
     }
   );
