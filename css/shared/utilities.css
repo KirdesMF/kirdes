@@ -35,7 +35,7 @@
 .bg-grid-50 {
   background-size: 50px 50px;
   background-position: 1px 1px, -25px -25px, -25px -25px;
-  background-image: radial-gradient(var(--circle) 2px, transparent 3px),
+  background-image: radial-gradient(var(--circle) 2px, transparent 2px),
     linear-gradient(var(--line) 0.04rem, transparent 0.04rem),
     linear-gradient(90deg, var(--line) 0.04rem, transparent 0.04rem);
 }

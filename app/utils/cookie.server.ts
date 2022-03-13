@@ -2,6 +2,7 @@ import { createCookie } from 'remix';
 
 export const setCookieTheme = createCookie('theme', {
   httpOnly: true,
+  sameSite: 'strict',
   secure: process.env.NODE_ENV === 'production',
   maxAge: 60 * 60 * 24 * 365, // 1 year
 });
@@ -11,5 +12,5 @@ export const getCookieTheme = async (req: Request) => {
   const parsedCookie = (await setCookieTheme.parse(cookie)) as {
     theme: 'light' | 'dark';
   };
-  return parsedCookie || { theme: '' };
+  return parsedCookie || { theme: 'dark' };
 };

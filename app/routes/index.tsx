@@ -97,11 +97,8 @@ export default function Index() {
               </p>
               <ElasticLine />
             </div>
-            <div className="relative grid place-items-center h-60vh md:border-shadow-5 bg-grid-50">
-              <span className="text-clamp-2xl font-black">
-                Kirdes
-                <ElasticLine width="100%" />
-              </span>
+            <div className="relative grid place-items-center h-55vh md:border-shadow-5 bg-grid-50">
+              <span className="text-clamp-2xl font-black">Kirdes</span>
             </div>
             <div className="flex items-center gap-x-xs justify-end">
               <ElasticLine />

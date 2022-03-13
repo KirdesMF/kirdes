@@ -54,20 +54,6 @@ export const meta: MetaFunction = () => {
  */
 export const links: LinksFunction = () => {
   return [
-    {
-      rel: 'preload',
-      href: '/fonts/Archivo-variable.ttf',
-      as: 'font',
-      type: 'font/ttf',
-      crossOrigin: 'anonymous',
-    },
-    {
-      rel: 'preload',
-      href: '/fonts/Epilogue-variable.ttf',
-      as: 'font',
-      type: 'font/ttf',
-      crossOrigin: 'anonymous',
-    },
     { rel: 'stylesheet', href: mainStyles },
     { rel: 'stylesheet', href: unoStyles },
   ];
@@ -134,7 +120,7 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <Header theme={data.theme} />
+        <Header theme={isSubmitting ? theme : data.theme} />
         <Outlet />
         <ScrollRestoration />
         <Scripts />

@@ -14,15 +14,15 @@ const icon = {
   dark: 'iconoir:moon-sat',
 };
 
+type Props = {
+  theme: 'light' | 'dark';
+};
+
 /***
  *
  *
  *
  */
-type Props = {
-  theme: 'light' | 'dark';
-};
-
 export function Header({ theme }: Props) {
   const { pathname } = useLocation();
   const currentTheme = theme === 'light' ? 'dark' : 'light';
