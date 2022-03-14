@@ -26,7 +26,7 @@ import { Footer } from './components/footer';
 /**
  *
  *
- *
+ * mata tags
  *
  */
 export const meta: MetaFunction = () => {
@@ -36,7 +36,7 @@ export const meta: MetaFunction = () => {
 /**
  *
  *
- *
+ * links tags
  *
  */
 export const links: LinksFunction = () => {
@@ -68,7 +68,7 @@ export const links: LinksFunction = () => {
  *
  *
  *
- *
+ * datas
  *
  *
  */
@@ -82,7 +82,7 @@ export const loader: LoaderFunction = async ({ request }) => {
 /**
  *
  *
- *
+ * actions - forms
  *
  *
  */
@@ -105,7 +105,7 @@ export const action: ActionFunction = async ({ request }) => {
 /**
  *
  *
- *
+ * ui - render - client
  *
  */
 export default function App() {
