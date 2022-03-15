@@ -1,0 +1,28 @@
+.timeline {
+  --row: 0;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr min-content 1fr;
+  gap: 2rem;
+}
+
+.timeline__line {
+  position: absolute;
+  inset-block: 0;
+  grid-column: 2 / 3;
+  width: 3px;
+  background-image: linear-gradient(
+    to bottom,
+    var(--body-bg),
+    var(--text),
+    var(--body-bg)
+  );
+}
+
+.timeline > li {
+  grid-row: var(--row);
+}
+
+.timeline > li:nth-child(even) {
+  grid-column: 3;
+}

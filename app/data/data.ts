@@ -27,3 +27,12 @@ export const data: Array<Data> = [
     name: 'Email',
   },
 ];
+
+export const resume = [
+  { job: 'électricien', start: '', end: '', description: '' },
+  { job: 'technicien maintenance', start: '', end: '', description: '' },
+  { job: 'responsable technique', start: '', end: '', description: '' },
+  { job: 'agent sécurité incendie', start: '', end: '', description: '' },
+  { job: 'autodidacte web dev', start: '', end: '', description: '' },
+  { job: 'certification web dev', start: '', end: '', description: '' },
+];

@@ -112,10 +112,10 @@ export default function Index() {
 
       <section id="about">
         <div className="wrapper grid gap-$clamp-size-2xl">
-          <header className="flex gap-x-xs items-baseline">
+          <div className="flex gap-x-xs items-baseline">
             <h2 className="text-clamp-2xl font-black">About</h2>
             <ElasticLine />
-          </header>
+          </div>
 
           {[langs, libs, tools].map((datas, idx) => (
             <div key={idx} className="grid gap-y-8">
@@ -134,10 +134,10 @@ export default function Index() {
 
       <section id="works">
         <div className="wrapper grid gap-$clamp-size-2xl">
-          <header className="flex gap-x-xs items-baseline">
+          <div className="flex gap-x-xs items-baseline">
             <h2 className="text-clamp-2xl font-black">Works</h2>
             <ElasticLine />
-          </header>
+          </div>
 
           <TextPanel content="Some projects..." />
 

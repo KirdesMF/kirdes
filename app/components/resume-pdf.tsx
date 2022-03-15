@@ -4,13 +4,12 @@ import {
   View,
   Document,
   StyleSheet,
-  Image,
   Font,
 } from '@react-pdf/renderer';
 
 Font.register({
-  family: 'Epilogue',
-  src: 'public/fonts/Epilogue-Regular.ttf',
+  src: 'https://fonts.gstatic.com/s/leaguegothic/v4/qFdR35CBi4tvBz81xy7WG7ep-BQAY7Krj7feObpH_-am.ttf',
+  family: 'League Gothic',
 });
 
 // Create styles
@@ -25,7 +24,7 @@ const styles = StyleSheet.create({
     borderRadius: '50%',
   },
   text: {
-    fontFamily: 'Epilogue',
+    fontFamily: 'League Gothic',
     fontSize: 12,
   },
 });
@@ -36,12 +35,9 @@ export function PDFResume({ src }: { src?: string }) {
     <Document title="Gourville Cedric CV">
       <Page size="A4" style={styles.page}>
         <View>
-          <Image src={'public/img/kirdes.jpg'} style={styles.img} />
-        </View>
-        <View>
           <Text style={styles.text}>
             Animé et passionnée par le web, autodidacte et curieux, j'ai décidé
-            de validé mon parcours en tant que développeur web.
+            de validé mon parcours en tant que développeur web. ok baby
           </Text>
         </View>
       </Page>
