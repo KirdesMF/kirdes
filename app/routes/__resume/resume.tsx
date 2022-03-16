@@ -1,22 +1,42 @@
-import { CSSProperties } from 'react';
 import { Link, useLoaderData } from 'remix';
 import { ElasticLine } from '~/components/elastic-line';
 import { TextPanel } from '~/components/text-panel';
+import { resume } from '~/data/data';
+
+import type { ResumeData } from '~/data/data';
+import type { CSSProperties } from 'react';
 
 import styles from '~/css/routes/resume.css';
-import { resume } from '~/data/data';
-import type { ResumeData } from '~/data/data';
+/**
+ *
+ *
+ *
+ *
+ */
 
 export const meta = () => ({
   title: 'Cédric Gourville - Resume',
 });
 
+/**
+ *
+ *
+ *
+ *
+ */
 export const links = () => [{ rel: 'stylesheet', href: styles }];
 
+/**
+ *
+ *
+ *
+ *
+ */
 export const loader = () => resume.reverse();
 
 export default function Resume() {
   const datas = useLoaderData<Array<ResumeData>>();
+
   return (
     <main className="wrapper grid gap-$clamp-size-2xl py-$clamp-size-2xl">
       <div className="flex gap-x-xs items-baseline">
@@ -37,7 +57,7 @@ export default function Resume() {
               <div
                 key={idx}
                 style={{ '--row': idx + 1 } as CSSProperties}
-                className="timeline__panel grid gap-y-2 border-$dark-black border-3 shadow-card"
+                className="timeline__panel grid gap-y-2  bg-$body-bg border-$dark-black border-3 shadow-card"
               >
                 <div className="flex items-baseline gap-x-4 p-4 border-bottom-2 border-$dark-black">
                   <h2 className="text-base">{data.job}</h2>

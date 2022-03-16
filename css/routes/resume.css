@@ -7,6 +7,7 @@
 }
 
 .timeline__line {
+  z-index: -1;
   position: absolute;
   inset-block: 0;
   grid-column: 2 / 3;
@@ -20,9 +21,18 @@
 }
 
 .timeline__panel {
-  grid-row: var(--row);
+  grid-column: 1 / -1;
 }
 
-.timeline__panel:nth-child(even) {
-  grid-column: 3;
+@media screen and (min-width: 768px) {
+  .timeline__panel {
+    grid-row: var(--row);
+  }
+
+  .timeline__panel:nth-child(odd) {
+    grid-column: 1;
+  }
+  .timeline__panel:nth-child(even) {
+    grid-column: 3;
+  }
 }

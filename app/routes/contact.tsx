@@ -5,6 +5,11 @@ import { createContactPage } from '~/data/notion';
 import type { NotionContactData } from '~/data/notion';
 import { ElasticLine } from '~/components/elastic-line';
 
+/**
+ *
+ *
+ *
+ */
 export const action: ActionFunction = async ({ request }) => {
   const form = await request.formData();
   const datas: NotionContactData = {
@@ -22,6 +27,12 @@ export const action: ActionFunction = async ({ request }) => {
   });
 };
 
+/**
+ *
+ *
+ *
+ *
+ */
 export default function Contact() {
   return (
     <main className="wrapper grid gap-$clamp-size-2xl py-$clamp-size-2xl">
