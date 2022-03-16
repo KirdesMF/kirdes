@@ -9,19 +9,21 @@ import type { NotionData } from '~/data/notion';
  */
 type CardsSkillProps = {
   datas: Array<NotionData>;
-  title: 'langs' | 'tools' | 'libs';
+  title: NotionData['topic'];
 };
 
 const titles = {
   langs: 'Languages',
   libs: 'Libraries',
   tools: 'Tools',
+  learn: 'Learning',
 };
 
 const icons = {
   langs: 'i-iconoir-code',
   libs: 'i-iconoir-terminal-outline',
   tools: 'i-iconoir-edit-pencil',
+  learn: 'i-iconoir-book-stack',
 };
 
 export function CardsSkill(props: CardsSkillProps) {

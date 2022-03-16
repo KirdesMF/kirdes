@@ -3,7 +3,7 @@
   position: relative;
   display: grid;
   grid-template-columns: 1fr min-content 1fr;
-  gap: 2rem;
+  gap: 2.5rem;
 }
 
 .timeline__line {
@@ -19,10 +19,10 @@
   );
 }
 
-.timeline > li {
+.timeline__panel {
   grid-row: var(--row);
 }
 
-.timeline > li:nth-child(even) {
+.timeline__panel:nth-child(even) {
   grid-column: 3;
 }

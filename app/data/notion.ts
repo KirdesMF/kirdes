@@ -4,7 +4,7 @@ export type NotionData = {
   icon: string;
   href: string;
   name: string;
-  topic: 'langs' | 'tools' | 'libs';
+  topic: 'langs' | 'tools' | 'libs' | 'learn';
 };
 
 export type NotionContactData = {

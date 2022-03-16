@@ -1,63 +1,76 @@
 import { CSSProperties } from 'react';
-import { Link } from 'remix';
+import { Link, useLoaderData } from 'remix';
 import { ElasticLine } from '~/components/elastic-line';
 import { TextPanel } from '~/components/text-panel';
 
 import styles from '~/css/routes/resume.css';
+import { resume } from '~/data/data';
+import type { ResumeData } from '~/data/data';
+
+export const meta = () => ({
+  title: 'Cédric Gourville - Resume',
+});
 
 export const links = () => [{ rel: 'stylesheet', href: styles }];
 
+export const loader = () => resume.reverse();
+
 export default function Resume() {
+  const datas = useLoaderData<Array<ResumeData>>();
   return (
     <main className="wrapper grid gap-$clamp-size-2xl py-$clamp-size-2xl">
       <div className="flex gap-x-xs items-baseline">
-        <h1 className="text-clamp-xl font-black">Resume</h1>
+        <h1 className="text-clamp-xl font-black">
+          Resume <span className="text-sm">🚧</span>
+        </h1>
         <ElasticLine />
       </div>
 
+      <Link to="/">Home</Link>
       <TextPanel content="Timeline" />
 
       <section>
-        <ul className="timeline">
+        <div className="timeline">
           <div className="timeline__line"></div>
-          {Array.from({ length: 6 }).map((_, idx) => {
+          {datas.map((data, idx) => {
             return (
-              <li
+              <div
                 key={idx}
                 style={{ '--row': idx + 1 } as CSSProperties}
-                className="grid grid-rows-[2rem_min-content] gap-y-2 px-4 py-6 border-$dark-black border-3"
+                className="timeline__panel grid gap-y-2 border-$dark-black border-3 shadow-card"
               >
-                <div className="flex items-baseline gap-x-2">
-                  <h2 className="font-secondary font-thin">Title</h2>
-                  <strong>Year</strong>
+                <div className="flex items-baseline gap-x-4 p-4 border-bottom-2 border-$dark-black">
+                  <h2 className="text-base">{data.job}</h2>
+                  <em className="font-secondary">
+                    {data.start} - {data.end}
+                  </em>
                 </div>
-                <p>Description du poste.</p>
-              </li>
+                <ul className="list-disc ml-4 p-4">
+                  {data.description.map((desc, idx) => {
+                    return (
+                      <li className="font-light text-sm" key={idx}>
+                        {desc}
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
             );
           })}
-        </ul>
+        </div>
       </section>
 
-      <TextPanel content="Bonus" />
-      <section>
-        <ul>
-          <li>Website Association musicale</li>
-          <li>Website Freelance formateur</li>
-        </ul>
-      </section>
+      <TextPanel content="PDF Resume coming soon" />
 
-      <TextPanel content="PDF Resume" />
-
-      <section className="min-h-100vh">
+      {/* <section className="min-h-100vh">
         <iframe
           width="100%"
           height="100%"
           src="/resume.pdf"
           title="test"
         ></iframe>
-      </section>
 
-      <Link to="/">Home</Link>
+      </section> */}
     </main>
   );
 }

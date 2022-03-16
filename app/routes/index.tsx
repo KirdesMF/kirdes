@@ -18,6 +18,9 @@ import { SVGRibbon } from '~/components/svgs';
 // provide data coche inside loader
 // use an export headers function to cache the route - document
 
+// TODO move data to a json/js file to avoid fetching it every time since it's static
+// was just to try notion api
+
 /**
  *
  *
@@ -71,6 +74,7 @@ export default function Index() {
   const langs = datas.notion.filter((data) => data.topic === 'langs');
   const libs = datas.notion.filter((data) => data.topic === 'libs');
   const tools = datas.notion.filter((data) => data.topic === 'tools');
+  const learn = datas.notion.filter((data) => data.topic === 'learn');
 
   return (
     <main className="grid gap-$clamp-size-2xl p-b-$clamp-size-2xl">
@@ -93,7 +97,7 @@ export default function Index() {
               >
                 <SVGRibbon />
                 <span className="z-1 font-bold font-secondary color-$dark-black">
-                  For hire
+                  Available
                 </span>
               </Link>
             </div>
@@ -117,15 +121,51 @@ export default function Index() {
             <ElasticLine />
           </div>
 
-          {[langs, libs, tools].map((datas, idx) => (
-            <div key={idx} className="grid gap-y-8">
-              <TextPanel content="lorem ipsum" />
-              <CardsSkill title={datas[idx].topic} datas={datas} />
-            </div>
-          ))}
+          <p>
+            Hey, I’m{' '}
+            <a href="https://twitter.com/CedricGourville">
+              <em>Cédric</em>
+            </a>
+            , I am 36 years old and I come from France. My family and I live in
+            a small town near Paris, with our dog Preston. I've always loved
+            hanging out on the web since I was little and I always wondered how
+            it worked ! I asked myself this question more and more often, which
+            gave me the desire to learn web dev. Before all that I did several
+            jobs, letter carrier, stagehand in a theater, electrician, technical
+            manager store, fire safety officer{' '}
+            <Link to="resume">
+              <em> - check here -</em>
+            </Link>{' '}
+            in which I learned a lot, humanly and professionally but none were
+            really made by choice. My last job gave me the opportunity and time
+            to invest in learning. So a little over 5 years ago, I started my
+            apprenticeship and by the end of 2021 I have validated some of these
+            achievements. To make it simple, here is a list of the techs I
+            master the most
+          </p>
+
+          <div className="grid gap-y-8">
+            <TextPanel content="I like to use..." />
+            <CardsSkill title={'langs'} datas={langs} />
+          </div>
+
+          <div className="grid gap-y-8">
+            <TextPanel content="what helps me a lot..." />
+            <CardsSkill title={'libs'} datas={libs} />
+          </div>
+
+          <div className="grid gap-y-8">
+            <TextPanel content="some useful tools" />
+            <CardsSkill title={'tools'} datas={tools} />
+          </div>
+
+          <div className="grid gap-y-8">
+            <TextPanel content="currently learning..." />
+            <CardsSkill title={'learn'} datas={learn} />
+          </div>
 
           <Link className="color-$text" to="/resume">
-            Resume
+            Check my Resume here
           </Link>
         </div>
       </section>
@@ -139,7 +179,7 @@ export default function Index() {
             <ElasticLine />
           </div>
 
-          <TextPanel content="Some projects..." />
+          <TextPanel content="There it is my sides/school projects..." />
 
           <ul className="card-project-wrapper color-$text">
             {datas.github.map((data, idx) => (

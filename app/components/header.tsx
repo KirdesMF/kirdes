@@ -1,4 +1,4 @@
-import { Form, useLocation } from 'remix';
+import { Form, Link, useLocation } from 'remix';
 import { Icon } from '@iconify/react';
 
 const styles = {
@@ -42,7 +42,7 @@ export function Header({ theme }: Props) {
         </button>
       </Form>
 
-      <a href="#home" className="h-10 w-10">
+      <Link to="/" className="h-10 w-10">
         <img
           className="rounded-full ring-shadow"
           src="/img/kirdes.jpg"
@@ -50,7 +50,7 @@ export function Header({ theme }: Props) {
           width="100%"
           height="100%"
         />
-      </a>
+      </Link>
     </header>
   );
 }
