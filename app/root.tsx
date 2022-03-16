@@ -30,7 +30,26 @@ import { Footer } from './components/footer';
  *
  */
 export const meta: MetaFunction = () => {
-  return { title: 'Cédric Gourville' };
+  const desc =
+    'Personal web site - portfolio web developer Cedric Gourville. Here you can find how to get in touch and what I like to work with';
+
+  return {
+    keywords: 'html, css, javascript, typescript, react, motion, design',
+    description: desc,
+    'og:type': 'website',
+    'og:url': 'https://kirdesmf.vercel.app',
+    'og:title': 'Cédric Gourville - web developer',
+    'og:description': desc,
+    'og:image': 'https://kirdesmf.vercel.app/img/preview.png',
+
+    'twitter:card': 'summary_large_image',
+    'twitter:url': 'https://kirdesmf.vercel.app',
+    'twitter:title': 'Cédric Gourville - web developer',
+    'twitter:author': '@CedricGourville',
+    'twitter:site': '@CedricGourville',
+    'twitter:description': desc,
+    'twitter:image': 'https://kirdesmf.vercel.app/img/preview.png',
+  };
 };
 
 /**
@@ -121,6 +140,7 @@ export default function App() {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>Cedric Gourville Web developer</title>
         <Meta />
         <Links />
       </head>

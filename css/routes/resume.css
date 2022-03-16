@@ -22,6 +22,7 @@
 
 .timeline__panel {
   grid-column: 1 / -1;
+  position: relative;
 }
 
 @media screen and (min-width: 768px) {

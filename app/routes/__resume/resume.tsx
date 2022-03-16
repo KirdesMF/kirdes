@@ -51,7 +51,7 @@ export default function Resume() {
 
       <section>
         <div className="timeline">
-          <div className="timeline__line"></div>
+          <div className="timeline__line grid place-items-center"></div>
           {datas.map((data, idx) => {
             return (
               <div
