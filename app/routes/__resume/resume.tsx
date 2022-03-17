@@ -1,9 +1,9 @@
-import { Link, useLoaderData } from 'remix';
+import { useLoaderData } from 'remix';
 import { ElasticLine } from '~/components/elastic-line';
 import { TextPanel } from '~/components/text-panel';
-import { experiences } from '~/data/data';
+import { getResumeDatas } from '~/data/data';
 
-import type { ResumeData } from '~/data/data';
+import type { ResumeData, Langs, Certificate } from '~/data/data';
 import type { CSSProperties } from 'react';
 
 import styles from '~/css/routes/resume.css';
@@ -32,10 +32,29 @@ export const links = () => [{ rel: 'stylesheet', href: styles }];
  *
  *
  */
-export const loader = () => experiences.reverse();
+export const loader = () => {
+  const { experiences, languages, bonus, certificates } = getResumeDatas();
+  return {
+    experiences: experiences.reverse(),
+    languages,
+    bonus,
+    certificates,
+  };
+};
 
+/**
+ *
+ *
+ *
+ *
+ */
 export default function Resume() {
-  const datas = useLoaderData<Array<ResumeData>>();
+  const { experiences, languages, bonus, certificates } = useLoaderData<{
+    experiences: Array<ResumeData>;
+    languages: Array<Langs>;
+    certificates: Array<Certificate>;
+    bonus: Array<string>;
+  }>();
 
   return (
     <main className="wrapper grid gap-$clamp-size-2xl py-$clamp-size-2xl">
@@ -47,19 +66,20 @@ export default function Resume() {
       </div>
 
       <TextPanel content="Timeline" />
-
       <section>
         <div className="timeline">
           <div className="timeline__line grid place-items-center"></div>
-          {datas.map((data, idx) => {
+          {experiences.map((data, idx) => {
             return (
               <div
-                key={idx}
+                key={data.title}
                 style={{ '--row': idx + 1 } as CSSProperties}
                 className="timeline__panel grid gap-y-2  bg-$body-bg border-$dark-black border-3 shadow-card"
               >
-                <div className="flex items-baseline gap-x-4 p-4 border-bottom-2 border-$dark-black">
-                  <h2 className="text-base">{data.title}</h2>
+                <div className="flex items-baseline justify-between p-4 border-bottom-2 border-$dark-black">
+                  <h2 className="block text-base max-w-[20ch] text-ellipsis whitespace-nowrap overflow-hidden">
+                    {data.title}
+                  </h2>
                   <em className="font-secondary">
                     {data.start} - {data.end}
                   </em>
@@ -67,7 +87,10 @@ export default function Resume() {
                 <ul className="list-disc ml-4 p-4">
                   {data.description.map((desc, idx) => {
                     return (
-                      <li className="font-light text-sm" key={idx}>
+                      <li
+                        className="dark:font-thin font-light text-sm"
+                        key={idx}
+                      >
                         {desc}
                       </li>
                     );
@@ -76,6 +99,47 @@ export default function Resume() {
               </div>
             );
           })}
+        </div>
+      </section>
+
+      <TextPanel content="More" />
+      <section className="flex justify-between flex-wrap gap-10">
+        <div>
+          <h3 className="font-secondary w-min bg-$about-base color-$dark-black px-4 mb-4">
+            Infos
+          </h3>
+          <ul className="list-disc ml-10 font-light text-sm">
+            {bonus.map((b, idx) => {
+              return <li key={idx}>{b}</li>;
+            })}
+          </ul>
+        </div>
+
+        <div>
+          <h3 className="font-secondary w-min bg-$about-base color-$dark-black px-4 mb-4">
+            Certificates
+          </h3>
+          <ul className="list-disc ml-10 font-light text-sm">
+            {certificates.map((certif, idx) => {
+              return <li key={idx}>{certif.title}</li>;
+            })}
+          </ul>
+        </div>
+
+        <div>
+          <h3 className="font-secondary w-min bg-$about-base color-$dark-black px-4 mb-4">
+            Languages
+          </h3>
+          <ul className="list-disc ml-10 font-light text-sm">
+            {languages.map((lang, idx) => {
+              return (
+                <li key={idx}>
+                  <span>{lang.lang} - </span>
+                  <span>{lang.level}</span>
+                </li>
+              );
+            })}
+          </ul>
         </div>
       </section>
 

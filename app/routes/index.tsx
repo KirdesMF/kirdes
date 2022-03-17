@@ -121,11 +121,11 @@ export default function Index() {
             <ElasticLine />
           </div>
 
-          <div className="text-lg">
-            <p>
+          <div>
+            <p className="text-lg font-light">
               Hey, I'm{' '}
               <a href="https://twitter.com/CedricGourville">
-                <em className="font-bold">Cédric</em>
+                <em>Cédric</em>
               </a>
               , I am 36 years old and I come from France. My family and I live
               in a small town near Paris, with our dog Preston. I've always
@@ -135,13 +135,13 @@ export default function Index() {
               that I did several jobs, letter carrier, stagehand in a theater,
               electrician, technical manager store, fire safety officer{' '}
               <Link to="resume">
-                <em className="font-bold"> - check here -</em>
+                <em> - check here -</em>
               </Link>{' '}
               in which I learned a lot, humanly and professionally but none were
               really made by choice.
             </p>
 
-            <p className="pt-5">
+            <p className="text-lg font-light mt-10">
               My last job gave me the opportunity and time to invest in
               learning. So a little over 5 years ago, I started my
               apprenticeship and by the end of 2021 I have validated some of

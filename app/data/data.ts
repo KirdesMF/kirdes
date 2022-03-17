@@ -28,6 +28,8 @@ export const data: Array<Data> = [
   },
 ];
 
+//------------------------------------------------------------------//
+
 export type ResumeData = {
   title: string;
   start: string | number;
@@ -36,8 +38,41 @@ export type ResumeData = {
   tag: 'school' | 'freelance';
 };
 
-export const certificates = [
-  { title: 'Web developer OpenClassrooms', year: '2021' },
+export type Langs = {
+  lang: string;
+  level: string;
+};
+
+export type Certificate = {
+  title: string;
+  year: number;
+};
+
+export function getResumeDatas() {
+  return {
+    certificates,
+    languages,
+    experiences,
+    bonus,
+  };
+}
+
+export const bonus = [
+  'Available now',
+  'Remote or hybrid',
+  'Freelance or contract',
+  'Can adapt to time zone (UTC+1)',
+];
+
+export const certificates: Array<Certificate> = [
+  { title: 'Web developer OpenClassrooms', year: 2021 },
+  { title: 'Self learning web development', year: 2015 },
+  { title: 'High school diploma in Electrical engineering', year: 2005 },
+];
+
+export const languages: Array<Langs> = [
+  { lang: 'French', level: 'native' },
+  { lang: 'English', level: 'fluent' },
 ];
 
 export const experiences: ResumeData[] = [
@@ -120,7 +155,11 @@ export const experiences: ResumeData[] = [
     start: '2021',
     end: 'now',
     tag: 'freelance',
-    description: ['Landing page', 'Notion api as CMS', 'Dashboard'],
+    description: [
+      'create design for landing page',
+      'Notion api as CMS',
+      'Dashboard',
+    ],
   },
   {
     title: 'obprod',
@@ -128,10 +167,9 @@ export const experiences: ResumeData[] = [
     end: 'now',
     tag: 'freelance',
     description: [
-      'Landing page',
-      'e-commerce',
-      'create a design',
-      'booking app',
+      'create design for landing page',
+      'e-commerce services',
+      'booking service',
     ],
   },
 ];
