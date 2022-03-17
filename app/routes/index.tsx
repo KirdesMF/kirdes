@@ -1,11 +1,11 @@
+import styles from '~/css/routes/index.css';
+import type { NotionData } from '~/data/notion';
+
 import { json, Link, useLoaderData } from 'remix';
 import { getNotionDatas, getNotionSocialDatas } from '~/data/notion';
 import { getGitDatas, GitData } from '~/data/github';
 import { Icon } from '@iconify/react';
 
-import type { NotionData } from '~/data/notion';
-
-import styles from '~/css/routes/index.css';
 import { CardsSkill } from '~/components/cards';
 import { ElasticLine } from '~/components/elastic-line';
 import { TextPanel } from '~/components/text-panel';
