@@ -43,7 +43,7 @@ export function CardsSkill(props: CardsSkillProps) {
               <div className="py-4 px-2 border-top-2 border-t-$dark-black grid place-items-center gradient-about">
                 <a
                   href={data.href}
-                  className="text-sm text-wght-bold color-$dark-black w-full h-full text-center"
+                  className="text-sm font-bold color-$dark-black w-full h-full text-center"
                 >
                   {data.name}
                 </a>
@@ -56,7 +56,7 @@ export function CardsSkill(props: CardsSkillProps) {
       <div className="card-skill-wrapper__icon shadow-rounded hidden lg:block">
         <span
           // prettier-ignore
-          className={`${icons[props.title]} block h-full w-full color-$dark-black`}
+          className={`${icons[props.title]} block h-full w-full color-$dark-black `}
         ></span>
       </div>
     </div>

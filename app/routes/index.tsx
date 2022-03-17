@@ -77,7 +77,7 @@ export default function Index() {
   const learn = datas.notion.filter((data) => data.topic === 'learn');
 
   return (
-    <main className="grid gap-$clamp-size-2xl p-b-$clamp-size-2xl">
+    <main className="grid gap-$clamp-size-2xl pb-$clamp-size-2xl">
       <section id="home">
         <div className="wrapper grid items-center min-h-$offset-header">
           <article className="grid gap-y-2">
@@ -121,28 +121,34 @@ export default function Index() {
             <ElasticLine />
           </div>
 
-          <p>
-            Hey, I’m{' '}
-            <a href="https://twitter.com/CedricGourville">
-              <em>Cédric</em>
-            </a>
-            , I am 36 years old and I come from France. My family and I live in
-            a small town near Paris, with our dog Preston. I've always loved
-            hanging out on the web since I was little and I always wondered how
-            it worked ! I asked myself this question more and more often, which
-            gave me the desire to learn web dev. Before all that I did several
-            jobs, letter carrier, stagehand in a theater, electrician, technical
-            manager store, fire safety officer{' '}
-            <Link to="resume">
-              <em> - check here -</em>
-            </Link>{' '}
-            in which I learned a lot, humanly and professionally but none were
-            really made by choice. My last job gave me the opportunity and time
-            to invest in learning. So a little over 5 years ago, I started my
-            apprenticeship and by the end of 2021 I have validated some of these
-            achievements. To make it simple, here is a list of the techs I
-            master the most
-          </p>
+          <div className="text-lg">
+            <p>
+              Hey, I'm{' '}
+              <a href="https://twitter.com/CedricGourville">
+                <em className="font-bold">Cédric</em>
+              </a>
+              , I am 36 years old and I come from France. My family and I live
+              in a small town near Paris, with our dog Preston. I've always
+              loved hanging out on the web since I was little and I always
+              wondered how it worked ! I asked myself this question more and
+              more often, which gave me the desire to learn web dev. Before all
+              that I did several jobs, letter carrier, stagehand in a theater,
+              electrician, technical manager store, fire safety officer{' '}
+              <Link to="resume">
+                <em className="font-bold"> - check here -</em>
+              </Link>{' '}
+              in which I learned a lot, humanly and professionally but none were
+              really made by choice.
+            </p>
+
+            <p className="pt-5">
+              My last job gave me the opportunity and time to invest in
+              learning. So a little over 5 years ago, I started my
+              apprenticeship and by the end of 2021 I have validated some of
+              these achievements. To make it simple, here is a list of the techs
+              I master the most.
+            </p>
+          </div>
 
           <div className="grid gap-y-8">
             <TextPanel content="I like to use..." />

@@ -7,18 +7,6 @@
 }
 
 :root {
-  --font-wght-thin: 'wght' 100;
-  --font-wght-extra-light: 'wght' 200;
-  --font-wght-light: 'wght' 300;
-  --font-wght-regular: 'wght' 400;
-  --font-wght-medium: 'wght' 500;
-  --font-wght-semi-bold: 'wght' 600;
-  --font-wght-bold: 'wght' 700;
-  --font-wght-extra-bold: 'wght' 800;
-  --font-wght-black: 'wght' 900;
-}
-
-:root {
   --clamp-size-3xs: clamp(0.25rem, calc(0.19rem + 0.3vw), 0.44rem);
   --clamp-size-2xs: clamp(0.5rem, calc(0.36rem + 0.7vw), 0.94rem);
   --clamp-size-xs: clamp(0.75rem, calc(0.55rem + 1vw), 1.38rem);

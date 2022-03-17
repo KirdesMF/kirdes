@@ -62,6 +62,20 @@ export const links: LinksFunction = () => {
   return [
     { rel: 'stylesheet', href: mainStyles },
     { rel: 'stylesheet', href: unoStyles },
+    {
+      rel: 'preload',
+      as: 'font',
+      href: '/fonts/Epilogue-variable.ttf',
+      type: 'font/ttf',
+      crossOrigin: 'anonymous',
+    },
+    {
+      rel: 'preload',
+      as: 'font',
+      href: '/fonts/Archivo-variable.ttf',
+      type: 'font/ttf',
+      crossOrigin: 'anonymous',
+    },
     { rel: 'manifest', href: '/manifest.json' },
     {
       rel: 'apple-touch-icon',

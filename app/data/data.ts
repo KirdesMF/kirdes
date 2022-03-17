@@ -29,93 +29,109 @@ export const data: Array<Data> = [
 ];
 
 export type ResumeData = {
-  job: string;
+  title: string;
   start: string | number;
   end: string | number;
   description: Array<string>;
+  tag: 'school' | 'freelance';
 };
 
-export const resume: Array<ResumeData> = [
+export const certificates = [
+  { title: 'Web developer OpenClassrooms', year: '2021' },
+];
+
+export const experiences: ResumeData[] = [
   {
-    job: 'machiniste',
-    start: 2006,
-    end: 2011,
-    description: ['maintenance', 'travaux', 'dépannage'],
-  },
-  {
-    job: 'Bac ELEEC',
-    start: '',
-    end: 2005,
-    description: ['baccalauréat electro technique'],
-  },
-  {
-    job: 'technicien électrique',
-    start: 2006,
-    end: 2011,
-    description: ['maintenance', 'travaux', 'dépannage'],
-  },
-  {
-    job: 'responsable technique',
-    start: 2011,
-    end: 2013,
-    description: [
-      "gestion d'équipe",
-      'gestion budget',
-      'coordination travaux',
-      'relationnel client',
-    ],
-  },
-  {
-    job: 'SSIAP 1',
-    start: '',
-    end: 2014,
-    description: ['diplôme de service de sécurité incendie'],
-  },
-  {
-    job: 'agent sécurité incendie',
-    start: 2014,
-    end: 2019,
-    description: [
-      "gestion d'urgence",
-      'assistance à personne',
-      'sécurité des biens et personnes',
-    ],
-  },
-  {
-    job: 'autodidacte web dev',
-    start: 2014,
-    end: 'today',
-    description: [
-      'FreeCodeCamp',
-      '30 days of CSS',
-      '30 days of JS',
-      'help/moderation on Discord server javascript based',
-    ],
-  },
-  {
-    job: 'certification web dev',
+    title: 'Reservia',
     start: 'may 2021',
-    end: 'december 2021',
+    end: 'june 2021',
+    tag: 'school',
     description: [
-      'web fundamentals',
-      'validation HTML',
-      'integration HTML CSS',
-      'CSS animation',
-      'SEO - a11y - performance',
-      'e-commerce frontend',
-      'rating website backend',
-      'social media full stack',
+      'Use a version control system for project tracking and hosting',
+      'Set up Front-End environment',
+      'Integrate content according to a template',
+      'Implement a responsive interface',
     ],
   },
   {
-    job: 'Available',
-    start: 'january 2022',
-    end: '...',
+    title: 'Oh my food',
+    start: 'june 2021',
+    end: 'june 2021',
+    tag: 'school',
     description: [
-      'currently working on some side projects',
-      'hocusbookus - organisme formation',
-      'obprod - studio music',
-      'but available now',
+      'Implement graphic CSS effects',
+      'Setting up structure for a website',
+      'Ensure the graphic consistency of a website',
+    ],
+  },
+  {
+    title: 'La chouette agence',
+    start: 'june 2021',
+    end: 'july 2021',
+    tag: 'school',
+    description: [
+      'Ensuring the accessibility of a website - a11y',
+      'Write maintainable HTML and CSS code',
+      'Optimize the size and speed of the website - performance',
+      'Optimize the referencing of a website - SEO',
+    ],
+  },
+  {
+    title: 'Orinoco',
+    start: 'july 2021',
+    end: 'august 2021',
+    tag: 'school',
+    description: [
+      'Interacting with a web service with JavaScript',
+      'e-commerce',
+      'Validate data from external sources',
+      'Create a test plan for an application',
+      'Managing JavaScript events',
+      'Vanilla js routing',
+      'Design',
+      'Deployment',
+    ],
+  },
+  {
+    title: 'Piiquante',
+    start: 'august 2021',
+    end: 'august 2021',
+    tag: 'school',
+    description: [
+      'Implement CRUD operations in a secure manner',
+      'Store data securely',
+      'Implement a logical data model in accordance with regulations (OSWAP)',
+    ],
+  },
+  {
+    title: 'Groupomania',
+    start: 'september 2021',
+    end: 'december 2021',
+    tag: 'school',
+    description: [
+      'Implement CRUD operations in a secure manner',
+      'Store data securely',
+      'Implement a logical data model in accordance with regulations (OSWAP)',
+      'fullstack web app',
+    ],
+  },
+  {
+    title: 'hocusbookus',
+    start: '2021',
+    end: 'now',
+    tag: 'freelance',
+    description: ['Landing page', 'Notion api as CMS', 'Dashboard'],
+  },
+  {
+    title: 'obprod',
+    start: '2021',
+    end: 'now',
+    tag: 'freelance',
+    description: [
+      'Landing page',
+      'e-commerce',
+      'create a design',
+      'booking app',
     ],
   },
 ];
