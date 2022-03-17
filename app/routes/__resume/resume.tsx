@@ -1,12 +1,13 @@
+import styles from '~/css/routes/resume.css';
+
+import type { ResumeData, Langs, Certificate } from '~/data/data';
+import type { CSSProperties } from 'react';
+
 import { useLoaderData } from 'remix';
 import { ElasticLine } from '~/components/elastic-line';
 import { TextPanel } from '~/components/text-panel';
 import { getResumeDatas } from '~/data/data';
 
-import type { ResumeData, Langs, Certificate } from '~/data/data';
-import type { CSSProperties } from 'react';
-
-import styles from '~/css/routes/resume.css';
 /**
  *
  *
