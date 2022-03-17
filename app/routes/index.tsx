@@ -239,6 +239,8 @@ export default function Index() {
         </div>
       </section>
 
+      <TextPanel content="Codepen and Codesandbox" />
+
       <PatternDivider end="contact" />
 
       <section id="contact">
