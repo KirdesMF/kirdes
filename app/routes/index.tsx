@@ -101,6 +101,29 @@ export default function Index() {
         </div>
       </section>
 
+      <section className="py-$clamp-size-2xl">
+        <div className="wrapper">
+          <p className="text-clamp-md font-bold text-center">
+            Hello, I'm{' '}
+            <a
+              href="https://twitter.com/CedricGourville"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="color-$about-base inline-flex items-baseline gap-x-2"
+            >
+              Cédric
+              <span
+                role="img"
+                className="i-iconoir-open-in-browser inline-block w-4 h-4"
+              ></span>
+            </a>
+            . I can help you create your next project with unique identity and
+            good practices in mind. If you want to know more about me...{' '}
+            <span className="color-$works-base">keep reading.</span>
+          </p>
+        </div>
+      </section>
+
       <PatternDivider end="about" />
 
       <section id="about" className="py-$clamp-size-2xl">
@@ -111,16 +134,14 @@ export default function Index() {
           </div>
 
           <p className="text-clamp-md font-bold">
-            Hello, I'm{' '}
-            <a
-              href="https://twitter.com/CedricGourville"
-              className="color-$about-base"
-            >
-              Cédric.{' '}
-            </a>
-            I can help you create your next project with unique identity and
-            good practices in mind. If you want to know more about me...{' '}
-            <span className="color-$works-base">keep reading.</span>
+            I'm 36, father of 3, living in{' '}
+            <span className="color-$welcome-base">France </span>near Paris. I'm
+            a self taught developer, I started learning web development a few
+            years ago. I like to keep a close eye on{' '}
+            <span className="color-$about-base">design</span>,{' '}
+            <span className="color-$works-base">accessibility</span> and{' '}
+            <span className="color-$contact-base">user experience</span>. I also
+            love to bring website to life with motion animation.
           </p>
 
           <div className="grid">
@@ -176,6 +197,17 @@ export default function Index() {
             <ElasticLine />
           </div>
 
+          <p className="text-clamp-md font-bold">
+            You can find here some project that I've worked on. There is also
+            some current side projects. All projects are actually on{' '}
+            <a className="color-$works-base" href="https://github.com/KirdesMF">
+              github
+            </a>
+            .
+          </p>
+
+          <hr />
+
           <TextPanel content="There it is my sides/school projects..." />
 
           <ul className="card-project-wrapper color-$text">
@@ -228,14 +260,22 @@ export default function Index() {
             ))}
           </ul>
 
+          <hr />
+
           <TextPanel content="Codepens" />
-          <a
-            href="https://codepen.io/kirdesmf"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Codepen
-          </a>
+
+          <p className="text-clamp-md font-bold">
+            I also have some{' '}
+            <a
+              href="https://codepen.io/kirdesmf"
+              target="_blank"
+              rel="noreferrer"
+              className="color-$works-base"
+            >
+              Codepen
+            </a>{' '}
+            projects.
+          </p>
         </div>
       </section>
 
