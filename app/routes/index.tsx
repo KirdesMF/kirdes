@@ -18,7 +18,7 @@ import { SVGRibbon } from '~/components/svgs';
 // provide data coche inside loader
 // use an export headers function to cache the route - document
 
-// TODO move data to a json/js file to avoid fetching it every time since it's static
+// TODO move data to a json/js file to avoid fetching it every time since it's .static
 // was just to try notion api
 
 /**
@@ -77,9 +77,9 @@ export default function Index() {
   const learn = datas.notion.filter((data) => data.topic === 'learn');
 
   return (
-    <main className="grid gap-$clamp-size-2xl pb-$clamp-size-2xl">
-      <section id="home">
-        <div className="wrapper grid items-center min-h-$offset-header">
+    <main>
+      <section id="home" className="py-$clamp-size-2xl">
+        <div className="wrapper">
           <article className="grid gap-y-2">
             <div className="flex items-center gap-x-xs">
               <p className="font-light font-secondary text-sm">
@@ -88,18 +88,8 @@ export default function Index() {
               <ElasticLine />
             </div>
 
-            <div className="relative grid place-items-center h-55vh md:border-3 border-$dark-black bg-grid-50">
+            <div className="grid place-items-center h-[55vh] bg-grid-50 md:border-3 border-$dark-black">
               <h1 className="text-clamp-2xl font-black">Kirdes</h1>
-
-              <Link
-                to="/resume"
-                className="absolute w-[8rem] h-[8rem] -bottom-[4rem] -left-[4rem] hidden xl:grid grid-center-area"
-              >
-                <SVGRibbon />
-                <span className="z-1 font-bold font-secondary color-$dark-black">
-                  Available
-                </span>
-              </Link>
             </div>
 
             <div className="flex items-center gap-x-xs justify-end">
@@ -114,14 +104,14 @@ export default function Index() {
 
       <PatternDivider end="about" />
 
-      <section id="about">
+      <section id="about" className="py-$clamp-size-2xl">
         <div className="wrapper grid gap-$clamp-size-2xl">
           <div className="flex gap-x-xs items-baseline">
             <h2 className="text-clamp-2xl font-black">About</h2>
             <ElasticLine />
           </div>
 
-          <div>
+          <div className="grid gap-y-5">
             <p className="text-lg font-light">
               Hey, I'm{' '}
               <a href="https://twitter.com/CedricGourville">
@@ -141,7 +131,7 @@ export default function Index() {
               really made by choice.
             </p>
 
-            <p className="text-lg font-light mt-10">
+            <p className="text-lg font-light">
               My last job gave me the opportunity and time to invest in
               learning. So a little over 5 years ago, I started my
               apprenticeship and by the end of 2021 I have validated some of
@@ -178,7 +168,7 @@ export default function Index() {
 
       <PatternDivider end="works" />
 
-      <section id="works">
+      <section id="works" className="py-$clamp-size-2xl">
         <div className="wrapper grid gap-$clamp-size-2xl">
           <div className="flex gap-x-xs items-baseline">
             <h2 className="text-clamp-2xl font-black">Works</h2>
@@ -236,15 +226,22 @@ export default function Index() {
               </li>
             ))}
           </ul>
+
+          <TextPanel content="Codepens" />
+          <a
+            href="https://codepen.io/kirdesmf"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Codepen
+          </a>
         </div>
       </section>
 
-      <TextPanel content="Codepen and Codesandbox" />
-
       <PatternDivider end="contact" />
 
-      <section id="contact">
-        <div className="wrapper grid gap-y-4xl">
+      <section id="contact" className="py-$clamp-size-2xl">
+        <div className="wrapper grid gap-$clamp-size-2xl">
           <h2 className="sr-only">Contact</h2>
 
           <TextPanel content="Get in touch" />

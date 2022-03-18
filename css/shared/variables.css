@@ -19,6 +19,11 @@
 }
 
 :root {
+  --font-base: 'Epilogue', sans-serif;
+  --font-secondary: 'Archivo Italic', sans-serif;
+}
+
+:root {
   --amber100: hsl(43, 100%, 86.8%);
   --amber200: hsl(42, 100%, 81.8%);
   --amber300: hsl(38, 99.7%, 76.3%);
@@ -91,6 +96,52 @@ html {
 
   --contact-lighter: var(--indigo600);
   --contact-base: var(--indigo700);
+
+  --gradient-about: linear-gradient(
+    120deg,
+    var(--about-base) 0%,
+    var(--about-base) 20%,
+    var(--about-lighter) 20%,
+    var(--about-lighter) 50%,
+    var(--about-base) 50%,
+    var(--about-base) 55%,
+    var(--about-lighter) 55%,
+    var(--about-lighter) 58%,
+    var(--about-base) 58%,
+    var(--about-base) 100%
+  );
+
+  --gradient-works: linear-gradient(
+    120deg,
+    var(--works-base) 0%,
+    var(--works-base) 15%,
+    var(--works-lighter) 15%,
+    var(--works-lighter) 35%,
+    var(--works-base) 35%,
+    var(--works-base) 40%,
+    var(--works-lighter) 40%,
+    var(--works-lighter) 45%,
+    var(--works-base) 45%,
+    var(--works-base) 90%,
+    var(--works-lighter) 90%,
+    var(--works-lighter) 95%,
+    var(--works-base) 95%,
+    var(--works-base) 100%
+  );
+
+  --gradient-contact: linear-gradient(
+    120deg,
+    var(--contact-base) 0%,
+    var(--contact-base) 20%,
+    var(--contact-lighter) 20%,
+    var(--contact-lighter) 50%,
+    var(--contact-base) 50%,
+    var(--contact-base) 55%,
+    var(--contact-lighter) 55%,
+    var(--contact-lighter) 58%,
+    var(--contact-base) 58%,
+    var(--contact-base) 100%
+  );
 }
 
 html.light {

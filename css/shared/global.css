@@ -41,22 +41,6 @@
   }
 }
 
-:root {
-  --font-base: 'Epilogue', sans-serif;
-  --font-secondary: 'Archivo Italic', sans-serif;
-}
-
-:root {
-  --header-height: 5rem;
-  --offset-header: calc(100vh - var(--header-height));
-}
-
-body {
-  background-color: var(--body-bg);
-  color: var(--text);
-  font-family: var(--font-base);
-}
-
 a {
   color: var(--text);
   text-underline-offset: 0.2em;

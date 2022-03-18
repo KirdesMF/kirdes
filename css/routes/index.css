@@ -1,51 +1,3 @@
-:root {
-  --gradient-about: linear-gradient(
-    120deg,
-    var(--about-base) 0%,
-    var(--about-base) 20%,
-    var(--about-lighter) 20%,
-    var(--about-lighter) 50%,
-    var(--about-base) 50%,
-    var(--about-base) 55%,
-    var(--about-lighter) 55%,
-    var(--about-lighter) 58%,
-    var(--about-base) 58%,
-    var(--about-base) 100%
-  );
-
-  --gradient-works: linear-gradient(
-    120deg,
-    var(--works-base) 0%,
-    var(--works-base) 15%,
-    var(--works-lighter) 15%,
-    var(--works-lighter) 35%,
-    var(--works-base) 35%,
-    var(--works-base) 40%,
-    var(--works-lighter) 40%,
-    var(--works-lighter) 45%,
-    var(--works-base) 45%,
-    var(--works-base) 90%,
-    var(--works-lighter) 90%,
-    var(--works-lighter) 95%,
-    var(--works-base) 95%,
-    var(--works-base) 100%
-  );
-
-  --gradient-contact: linear-gradient(
-    120deg,
-    var(--contact-base) 0%,
-    var(--contact-base) 20%,
-    var(--contact-lighter) 20%,
-    var(--contact-lighter) 50%,
-    var(--contact-base) 50%,
-    var(--contact-base) 55%,
-    var(--contact-lighter) 55%,
-    var(--contact-lighter) 58%,
-    var(--contact-base) 58%,
-    var(--contact-base) 100%
-  );
-}
-
 /*------------------- about --------------------*/
 .card-skill-wrapper {
   display: grid;
@@ -69,7 +21,7 @@
 .card-skill {
   display: grid;
   grid-template-rows: 6rem min-content;
-  grid-template-columns: minmax(0, 7.3rem);
+  grid-template-columns: minmax(0, 8rem);
 }
 
 /*---------- works ---------------*/

@@ -42,5 +42,26 @@ export default defineConfig({
         'box-shadow': `0 0 0 ${match[1]}px var(--dark-black)`,
       }),
     ],
+    [
+      /^bg-grid-(10|15|25|50)$/,
+      (match) => {
+        const size = Number(match[1]);
+        const half = Math.floor(size / 2);
+        return {
+          'background-size': `${size}px ${size}px`,
+          'background-position': `-${half}px ${half}px, ${half}px -${half}px`,
+          'background-image': `
+            linear-gradient(var(--line) 0.5px, transparent 1px),
+            linear-gradient(90deg, var(--line) 0.5px, transparent 1px);
+          `,
+        };
+      },
+    ],
+    [
+      /gradient-(about|works|contact)/,
+      (match) => ({
+        'background-image': `var(--gradient-${match[1]})`,
+      }),
+    ],
   ],
 });

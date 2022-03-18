@@ -158,7 +158,7 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body>
+      <body className="flex flex-col min-h-full bg-$body-bg color-$text font-base">
         <Header theme={isSubmitting ? theme : data.theme} />
         <Outlet />
         <Footer />

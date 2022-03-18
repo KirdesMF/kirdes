@@ -1,6 +1,8 @@
 import { Icon } from '@iconify/react';
 import type { NotionData } from '~/data/notion';
 
+import clsx from 'clsx';
+
 /**
  *
  *
@@ -28,8 +30,14 @@ const icons = {
 
 export function CardsSkill(props: CardsSkillProps) {
   return (
-    <div className="card-skill-wrapper relative border-$dark-black border-4 rounded-xl bg-grid-15">
-      <h3 className="place-self-start text-base px-8 py-2 bg-$dark-black color-$white rounded-br-xl font-secondary">
+    <div className="card-skill-wrapper relative border-$dark-black border-4 rounded-xl bg-grid-10">
+      <h3
+        className={clsx(
+          'place-self-start px-8 py-2',
+          'bg-$dark-black color-$white rounded-br-xl',
+          'text-base font-secondary'
+        )}
+      >
         {titles[props.title]}
       </h3>
 
@@ -43,7 +51,7 @@ export function CardsSkill(props: CardsSkillProps) {
               <div className="py-4 px-2 border-top-2 border-t-$dark-black grid place-items-center gradient-about">
                 <a
                   href={data.href}
-                  className="text-sm font-bold color-$dark-black w-full h-full text-center"
+                  className="text-sm font-base color-$dark-black w-full h-full text-center"
                 >
                   {data.name}
                 </a>
@@ -55,8 +63,10 @@ export function CardsSkill(props: CardsSkillProps) {
 
       <div className="card-skill-wrapper__icon shadow-rounded hidden lg:block">
         <span
-          // prettier-ignore
-          className={`${icons[props.title]} block h-full w-full color-$dark-black `}
+          className={clsx(
+            icons[props.title],
+            'block h-full w-full color-$dark-black'
+          )}
         ></span>
       </div>
     </div>

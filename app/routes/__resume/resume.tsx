@@ -35,8 +35,9 @@ export const links = () => [{ rel: 'stylesheet', href: styles }];
  */
 export const loader = () => {
   const { experiences, languages, bonus, certificates } = getResumeDatas();
+
   return {
-    experiences: experiences.reverse(),
+    experiences,
     languages,
     bonus,
     certificates,
