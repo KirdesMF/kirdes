@@ -133,7 +133,7 @@ export default function Index() {
             <ElasticLine />
           </div>
 
-          <p className="text-clamp-md font-bold">
+          <p className="text-clamp-sm font-bold">
             I'm 36, father of 3, living in{' '}
             <span className="color-$welcome-base">France </span>near Paris. I'm
             a self taught developer, I started learning web development a few
@@ -145,7 +145,7 @@ export default function Index() {
           </p>
 
           <div className="grid">
-            <p className="text-clamp-md font-bold">
+            <p className="text-clamp-sm font-bold">
               Let's start by talking about what I like to use and keep a fresh
               eye on it
             </p>
