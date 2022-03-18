@@ -14,13 +14,6 @@ type CardsSkillProps = {
   title: NotionData['topic'];
 };
 
-const titles = {
-  langs: 'Languages',
-  libs: 'Libraries',
-  tools: 'Tools',
-  learn: 'Learning',
-};
-
 const icons = {
   langs: 'i-iconoir-code',
   libs: 'i-iconoir-terminal-outline',
@@ -30,28 +23,22 @@ const icons = {
 
 export function CardsSkill(props: CardsSkillProps) {
   return (
-    <div className="card-skill-wrapper relative border-$dark-black border-4 rounded-xl bg-grid-10">
-      <h3
-        className={clsx(
-          'place-self-start px-8 py-2',
-          'bg-$dark-black color-$white rounded-br-xl',
-          'text-base font-secondary'
-        )}
-      >
-        {titles[props.title]}
-      </h3>
-
-      <ul className="flex flex-wrap gap-5 justify-center px-4">
+    <div className="relative bg-grid-10 py-10 px-10 border-$dark-black border-2">
+      <ul className="flex flex-wrap gap-5 justify-center">
         {props.datas.map((data) => (
           <li key={data.name}>
             <article className="card-skill shadow-card bg-$body-bg border-2 border-$dark-black">
               <div className="grid place-items-center">
-                <Icon icon={data.icon} className="w-12 h-12 color-$text" />
+                <Icon icon={data.icon} className="w-8 h-8 color-$text" />
               </div>
-              <div className="py-4 px-2 border-top-2 border-t-$dark-black grid place-items-center gradient-about">
+              <div className="py-2 px-2 border-top-2 border-t-$dark-black grid place-items-center gradient-about">
                 <a
                   href={data.href}
-                  className="text-sm font-base color-$dark-black w-full h-full text-center"
+                  className={clsx(
+                    'w-full h-full',
+                    'color-$dark-black',
+                    'text-xs font-base  text-center max-w-[10ch] text-ellipsis whitespace-nowrap overflow-hidden'
+                  )}
                 >
                   {data.name}
                 </a>
@@ -61,7 +48,7 @@ export function CardsSkill(props: CardsSkillProps) {
         ))}
       </ul>
 
-      <div className="card-skill-wrapper__icon shadow-rounded hidden lg:block">
+      <div className="card-skill--icon shadow-rounded hidden lg:block">
         <span
           className={clsx(
             icons[props.title],

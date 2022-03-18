@@ -26,7 +26,7 @@ export default defineConfig({
       new RegExp(`^text-clamp-(${ranges})$`),
       (match) => ({
         'font-size': `var(--clamp-size-${match[1]})`,
-        'line-height': 1,
+        'line-height': 1.15,
       }),
     ],
     [

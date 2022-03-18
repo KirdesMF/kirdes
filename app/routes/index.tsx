@@ -10,7 +10,6 @@ import { CardsSkill } from '~/components/cards';
 import { ElasticLine } from '~/components/elastic-line';
 import { TextPanel } from '~/components/text-panel';
 import { PatternDivider } from '~/components/divider';
-import { SVGRibbon } from '~/components/svgs';
 
 // - check https://www.youtube.com/watch?v=3XkU_DXcgl0 for caching
 // - https://dev.to/codefinity/remix-newsletter-7-35k7
@@ -111,58 +110,60 @@ export default function Index() {
             <ElasticLine />
           </div>
 
-          <div className="grid gap-y-5">
-            <p className="text-lg font-light">
-              Hey, I'm{' '}
-              <a href="https://twitter.com/CedricGourville">
-                <em>Cédric</em>
-              </a>
-              , I am 36 years old and I come from France. My family and I live
-              in a small town near Paris, with our dog Preston. I've always
-              loved hanging out on the web since I was little and I always
-              wondered how it worked ! I asked myself this question more and
-              more often, which gave me the desire to learn web dev. Before all
-              that I did several jobs, letter carrier, stagehand in a theater,
-              electrician, technical manager store, fire safety officer{' '}
-              <Link to="resume">
-                <em> - check here -</em>
-              </Link>{' '}
-              in which I learned a lot, humanly and professionally but none were
-              really made by choice.
-            </p>
+          <p className="text-clamp-md font-bold">
+            Hello, I'm{' '}
+            <a
+              href="https://twitter.com/CedricGourville"
+              className="color-$about-base"
+            >
+              Cédric.{' '}
+            </a>
+            I can help you create your next project with unique identity and
+            good practices in mind. If you want to know more about me...{' '}
+            <span className="color-$works-base">keep reading.</span>
+          </p>
 
-            <p className="text-lg font-light">
-              My last job gave me the opportunity and time to invest in
-              learning. So a little over 5 years ago, I started my
-              apprenticeship and by the end of 2021 I have validated some of
-              these achievements. To make it simple, here is a list of the techs
-              I master the most.
+          <div className="grid">
+            <p className="text-clamp-md font-bold">
+              Let's start by talking about what I like to use and keep a fresh
+              eye on it
             </p>
+            <span className="justify-self-center text-clamp-lg font-black color-$about-base">
+              ...
+            </span>
           </div>
 
+          <hr />
+
           <div className="grid gap-y-8">
-            <TextPanel content="I like to use..." />
+            <TextPanel content="Programming languages ?" />
             <CardsSkill title={'langs'} datas={langs} />
           </div>
 
           <div className="grid gap-y-8">
-            <TextPanel content="what helps me a lot..." />
+            <TextPanel content="Librairies ? Frameworks ?" />
             <CardsSkill title={'libs'} datas={libs} />
           </div>
 
           <div className="grid gap-y-8">
-            <TextPanel content="some useful tools" />
+            <TextPanel content="Great tools 🙌" />
             <CardsSkill title={'tools'} datas={tools} />
           </div>
 
           <div className="grid gap-y-8">
-            <TextPanel content="currently learning..." />
+            <TextPanel content="I need to master those" />
             <CardsSkill title={'learn'} datas={learn} />
           </div>
 
-          <Link className="color-$text" to="/resume">
-            Check my Resume here
-          </Link>
+          <hr />
+
+          <p className="text-clamp-md font-bold">
+            Since I'm looking for a job and it may interested some people, there
+            it is my{' '}
+            <Link to="/resume" className="color-$about-base">
+              resume.
+            </Link>
+          </p>
         </div>
       </section>
 
