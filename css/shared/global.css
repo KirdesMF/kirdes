@@ -1,22 +1,22 @@
 /* https://web.dev/variable-fonts/#fallbacks */
 @supports not (font-variation-settings: normal) {
   @font-face {
-    font-family: 'Epilogue';
-    src: url('/fonts/Epilogue-Black.ttf');
+    font-family: "Epilogue";
+    src: url("/fonts/Epilogue-Black.ttf");
     font-display: swap;
     font-weight: 900;
   }
 
   @font-face {
-    font-family: 'Epilogue';
-    src: url('/fonts/Epilogue-Regular.ttf');
+    font-family: "Epilogue";
+    src: url("/fonts/Epilogue-Regular.ttf");
     font-display: swap;
     font-weight: 500;
   }
 
   @font-face {
-    font-family: 'Archivo Italic';
-    src: url('/fonts/Archivo-Bold.ttf');
+    font-family: "Archivo Italic";
+    src: url("/fonts/Archivo-Bold.ttf");
     font-display: swap;
     font-weight: bold;
   }
@@ -24,17 +24,17 @@
 
 @supports (font-variation-settings: normal) {
   @font-face {
-    font-family: 'Epilogue';
-    src: url('/fonts/Epilogue-variable.ttf') format('truetype-variations'),
-      url('/fonts/Epilogue-variable.ttf') format('truetype supports variations');
+    font-family: "Epilogue";
+    src: url("/fonts/Epilogue-variable.ttf") format("truetype-variations"),
+      url("/fonts/Epilogue-variable.ttf") format("truetype supports variations");
     font-weight: 100 900;
     font-display: swap;
   }
 
   @font-face {
-    font-family: 'Archivo Italic';
-    src: url('/fonts/Archivo-variable.ttf') format('truetype-variations'),
-      url('/fonts/Archivo-variable.ttf') format('truetype supports variations');
+    font-family: "Archivo Italic";
+    src: url("/fonts/Archivo-variable.ttf") format("truetype-variations"),
+      url("/fonts/Archivo-variable.ttf") format("truetype supports variations");
     font-weight: 100 900;
     font-stretch: 62% 125%;
     font-display: swap;
@@ -43,5 +43,5 @@
 
 a {
   color: var(--text);
-  text-underline-offset: 0.1em;
+  text-underline-offset: 0.15em;
 }
