@@ -1,15 +1,15 @@
-import styles from '~/css/routes/index.css';
-import type { NotionData } from '~/data/notion';
+import styles from "~/css/routes/index.css";
+import type { NotionData } from "~/data/notion";
 
-import { json, Link, useLoaderData } from 'remix';
-import { getNotionDatas, getNotionSocialDatas } from '~/data/notion';
-import { getGitDatas, GitData } from '~/data/github';
-import { Icon } from '@iconify/react';
+import { json, Link, useLoaderData } from "remix";
+import { getNotionDatas, getNotionSocialDatas } from "~/data/notion";
+import { getGitDatas, GitData } from "~/data/github";
+import { Icon } from "@iconify/react";
 
-import { CardsSkill } from '~/components/cards';
-import { ElasticLine } from '~/components/elastic-line';
-import { TextPanel } from '~/components/text-panel';
-import { PatternDivider } from '~/components/divider';
+import { CardsSkill } from "~/components/cards";
+import { ElasticLine } from "~/components/elastic-line";
+import { TextPanel } from "~/components/text-panel";
+import { PatternDivider } from "~/components/divider";
 
 // - check https://www.youtube.com/watch?v=3XkU_DXcgl0 for caching
 // - https://dev.to/codefinity/remix-newsletter-7-35k7
@@ -26,7 +26,7 @@ import { PatternDivider } from '~/components/divider';
  *
  *
  */
-export const links = () => [{ rel: 'stylesheet', href: styles }];
+export const links = () => [{ rel: "stylesheet", href: styles }];
 /**
  *
  *
@@ -49,7 +49,7 @@ export const loader = async () => {
     {
       status: 200,
       headers: {
-        'Cache-Control': 'public, max-age=86000',
+        "Cache-Control": "public, max-age=86000",
       },
     }
   );
@@ -70,10 +70,10 @@ export default function Index() {
     year: number;
   }>();
 
-  const langs = datas.notion.filter((data) => data.topic === 'langs');
-  const libs = datas.notion.filter((data) => data.topic === 'libs');
-  const tools = datas.notion.filter((data) => data.topic === 'tools');
-  const learn = datas.notion.filter((data) => data.topic === 'learn');
+  const langs = datas.notion.filter((data) => data.topic === "langs");
+  const libs = datas.notion.filter((data) => data.topic === "libs");
+  const tools = datas.notion.filter((data) => data.topic === "tools");
+  const learn = datas.notion.filter((data) => data.topic === "learn");
 
   return (
     <main>
@@ -104,7 +104,7 @@ export default function Index() {
       <section className="py-$clamp-size-2xl">
         <div className="wrapper">
           <p className="text-clamp-md font-bold text-center">
-            Hello, I'm{' '}
+            Hello, I'm{" "}
             <a
               href="https://twitter.com/CedricGourville"
               target="_blank"
@@ -118,7 +118,7 @@ export default function Index() {
               ></span>
             </a>
             . I can help you create your next project with unique identity and
-            good practices in mind. If you want to know more about me...{' '}
+            good practices in mind. If you want to know more about me...{" "}
             <span className="color-$works-base">keep reading.</span>
           </p>
         </div>
@@ -134,12 +134,12 @@ export default function Index() {
           </div>
 
           <p className="text-clamp-sm font-bold">
-            I'm 36, father of 3, living in{' '}
+            I'm 36, father of 3, living in{" "}
             <span className="color-$welcome-base">France </span>near Paris. I'm
             a self taught developer, I started learning web development a few
-            years ago. I like to keep a close eye on{' '}
-            <span className="color-$about-base">design</span>,{' '}
-            <span className="color-$works-base">accessibility</span> and{' '}
+            years ago. I like to keep a close eye on{" "}
+            <span className="color-$about-base">design</span>,{" "}
+            <span className="color-$works-base">accessibility</span> and{" "}
             <span className="color-$contact-base">user experience</span>. I also
             love to bring website to life with motion animation.
           </p>
@@ -158,33 +158,32 @@ export default function Index() {
 
           <div className="grid gap-y-8">
             <TextPanel content="Programming languages ?" />
-            <CardsSkill title={'langs'} datas={langs} />
+            <CardsSkill title={"langs"} datas={langs} />
           </div>
 
           <div className="grid gap-y-8">
             <TextPanel content="Librairies ? Frameworks ?" />
-            <CardsSkill title={'libs'} datas={libs} />
+            <CardsSkill title={"libs"} datas={libs} />
           </div>
 
           <div className="grid gap-y-8">
             <TextPanel content="Great tools 🙌" />
-            <CardsSkill title={'tools'} datas={tools} />
+            <CardsSkill title={"tools"} datas={tools} />
           </div>
 
           <div className="grid gap-y-8">
             <TextPanel content="I need to master those" />
-            <CardsSkill title={'learn'} datas={learn} />
+            <CardsSkill title={"learn"} datas={learn} />
           </div>
 
           <hr />
 
-          <p className="text-clamp-md font-bold">
-            Since I'm looking for a job and it may interested some people, there
-            it is my{' '}
-            <Link to="/resume" className="color-$about-base">
-              resume.
-            </Link>
-          </p>
+          <Link
+            to="/resume"
+            className="color-$about-base text-clamp-md font-bold"
+          >
+            resume.
+          </Link>
         </div>
       </section>
 
@@ -199,7 +198,7 @@ export default function Index() {
 
           <p className="text-clamp-md font-bold">
             You can find here some project that I've worked on. There is also
-            some current side projects. All projects are actually on{' '}
+            some current side projects. All projects are actually on{" "}
             <a className="color-$works-base" href="https://github.com/KirdesMF">
               github
             </a>
@@ -242,7 +241,7 @@ export default function Index() {
                     <div className="flex gap-x-3 ">
                       {data.repositoryTopics.edges.map((topic) => {
                         const icon = topic.node.topic.name;
-                        const isFolio = topic.node.topic.name === 'portfolio';
+                        const isFolio = topic.node.topic.name === "portfolio";
                         if (isFolio) return null;
                         return (
                           <span key={topic.node.id}>
@@ -265,7 +264,7 @@ export default function Index() {
           <TextPanel content="Codepens" />
 
           <p className="text-clamp-md font-bold">
-            I also have some{' '}
+            I also have some{" "}
             <a
               href="https://codepen.io/kirdesmf"
               target="_blank"
@@ -273,7 +272,7 @@ export default function Index() {
               className="color-$works-base"
             >
               Codepen
-            </a>{' '}
+            </a>{" "}
             projects.
           </p>
         </div>
